@@ -51,3 +51,28 @@ http://localhost:5173
 **Ami Ikuta**  
 Nurse → Web Designer / Frontend Developer  
 SUNABACO Ebetsu 2025秋 受講生
+
+## 🛠 更新履歴（Development Log）
+
+### 📅 2025-10-27  
+#### 🔹 編集内容
+- React + Tailwind 構成でプロジェクトを再構築  
+- **フロントエンド（my-portfolio）** と **バックエンド（Flask）** を分離し安全管理化  
+- Vite + React + Tailwind の環境構築を完了  
+- `.gitignore` 設定で `node_modules` 除外確認済み  
+- `Header.jsx` を実装（固定ヘッダー＋ハンバーガーメニュー対応）  
+- Lucide React で `Menu` / `X` アイコン導入  
+- `index.css` に Tailwind ベース設定を追加し、Figmaデザインとの再現を調整  
+- 自動翻訳による文字変換（"TARO YAMADA" → "山田太郎"）の対策として `translate="no"` を導入  
+- README.md 新規作成・GitHubへ初プッシュ！
+
+---
+
+#### 💡 学び・気づき
+- Tailwind と Figma の差を埋めるには「雰囲気の再現」が大事。ピクセル単位より印象重視。  
+- Vite プロジェクトでは `index.css` と `tailwind.config.js` の関係を理解しておくと、テーマカラーの調整がスムーズ。  
+- React + Tailwind の構成は**デザインの反映スピードが圧倒的に速い！**  
+- ブラウザ自動翻訳は想定外の崩れを起こす。`translate="no"`で防げる。  
+- GitHub に初めて README を整理してプッシュ → **「作品として管理する」実感が生まれた日。**  
+- 今後はセクション単位でブランチを切り、変更履歴を明確に残していく！
+
