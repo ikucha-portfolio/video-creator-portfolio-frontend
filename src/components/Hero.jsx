@@ -13,7 +13,7 @@ export default function Hero() {
         </p>
 
         {/* MOREボタン */}
-        <button className="group inline-flex items-center gap-2 text-[#7FB3D5] font-medium tracking-wider hover:text-[#A8D8EA] transition mb-12">
+        <button translate="no"className="group inline-flex items-center gap-2 text-[#7FB3D5] font-medium tracking-wider hover:text-[#A8D8EA] transition mb-12">
           MORE
           <span className="w-10 h-0.5 bg-[#A8D8EA] group-hover:w-16 transition-all duration-500"></span>
         </button>
