@@ -12,7 +12,7 @@ export default function Header({ scrollToSection, menuItems }) {
           translate="no"
           className="text-lg md:text-xl font-medium tracking-wider text-foreground"
         >
-          Ryan Chronicle
+          RYAN CHRONICLE
         </h1>
 
         {/* ハンバーガーメニュー（モバイル） */}

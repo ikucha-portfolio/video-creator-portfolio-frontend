@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section
   id="hero"
-  className="pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-b from-[#F2F4F7] to-[#FFFFFF]"
+  className="pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-b from-[#F3F5F6] to-[#FAF9F7]"
 >
       <div className="max-w-6xl mx-auto px-6">
         {/* PCでは左右2カラム／SPは縦並び */}
