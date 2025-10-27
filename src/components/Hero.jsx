@@ -39,12 +39,25 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* セクション内のリンク（任意）：左寄せのまま */}
-        <div className="mt-12 flex flex-col gap-6 text-[#7FB3D5] text-base font-medium tracking-wide">
-          <a href="#works" className="hover:text-[#A8D8EA] transition">作品を見る</a>
-          <a href="#contact" className="hover:text-[#A8D8EA] transition">お問い合わせ</a>
-        </div>
-      </div>
+        {/* CTA */}
+<div className="mt-12 flex flex-col gap-6 text-[#7FB3D5] text-base font-medium tracking-wide">
+  {[
+    { label: "作品を見る", href: "#works" },
+    { label: "お問い合わせ", href: "#contact" },
+  ].map((item) => (
+    <a
+      key={item.href}
+      href={item.href}
+      className="group inline-flex items-center gap-2 hover:text-[#A8D8EA] transition no-underline"
+    >
+      {item.label}
+      <span className="w-8 h-0.5 bg-[#A8D8EA] group-hover:w-16 transition-all duration-500"></span>
+    </a>
+  ))}
+</div>
+
+
+    </div>
     </section>
   );
 }

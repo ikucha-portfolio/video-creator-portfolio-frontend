@@ -14,5 +14,7 @@ html, body {
 }
 
 a {
-  @apply text-primary hover:underline transition-colors;
+ @apply text-primary no-underline hover:no-underline transition-colors;
+ /* 下線の代わりに軽いフィードバックを付けたいなら↓ */
+ /* @apply hover:opacity-80; */
 }
