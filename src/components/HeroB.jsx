@@ -36,43 +36,36 @@ export default function HeroB() {
           あなたの想いを丁寧な形にします。<br />
           日本語・中国語対応可能
         </p>
+{/* CTAボタン群 */}
+<div className="mt-16 flex flex-col md:flex-row md:items-center md:justify-start gap-3 md:gap-5">
+  {/* 作品を見る */}
+  <a
+    href="#works"
+    className="group flex items-center justify-center gap-2 bg-[#1A1A1A] text-white text-[15px] font-medium
+               h-[40px] px-8 shadow-[0_3px_10px_rgba(0,0,0,0.1)]
+               hover:bg-[#2E2E2E] active:scale-[0.98]
+               transition-all duration-300 ease-in-out"
+  >
+    作品を見る
+    <span className="group-hover:translate-x-1 transition-transform duration-300">▷</span>
+  </a>
 
-        {/* CTA（細身＆スタイリッシュ／▶︎がスライド） */}
-        <div className="mt-8 flex flex-col gap-4 max-w-md">
-          {/* プライマリ（塗り） */}
-          <a
-  href="#works"
-  className="
-    group inline-flex items-center justify-center
-    px-6 py-3 md:px-8 md:py-3
-    bg-[#2B2B2B] text-white
-    font-medium tracking-wide
-    shadow-sm hover:shadow-md
-    transition-all duration-300
-    hover:-translate-y-0.5
-  "
->
-  作品を見る <span className="ml-2 text-lg transition-transform duration-300 group-hover:translate-x-1">▷</span>
-</a>
+  {/* お問い合わせ */}
+  <a
+    href="#contact"
+    className="flex items-center justify-center border-[1.5px] border-[#1A1A1A] text-[#1A1A1A] text-[15px] font-medium
+               h-[40px] px-8 
+               hover:bg-[#1A1A1A] hover:text-white active:scale-[0.98]
+               transition-all duration-300 ease-in-out"
+  >
+    お問い合わせ
+  </a>
+</div>
 
-
-          {/* セカンダリ（アウトライン＋透明感） */}
-          <a
-            href="#contact"
-            className="
-              group inline-flex items-center justify-center
-              px-6 py-3 md:px-8 md:py-3
-              border border-[#2B2B2B]/60 text-[#2B2B2B]
-              bg-white/65 supports-[backdrop-filter]:backdrop-blur-[2px]
-              shadow-[0_1px_0_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)]
-              transition-all duration-300
-              hover:-translate-y-0.5
-            "
-          >
-            お問い合わせ
-          </a>
-        </div>
-
+{/* 下部リンク */}
+<div className="mt-12 md:mt-16 text-[#666] text-sm md:text-base font-medium flex items-center gap-1 hover:gap-2 transition-all duration-300">
+  制作者について詳しく <span>→</span>
+</div>
         {/* さらに下の「制作者について詳しく」などがあればここに */}
       </div>
     </section>
