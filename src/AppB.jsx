@@ -1,6 +1,8 @@
 // src/AppB.jsx
 import HeaderB from "./components/HeaderB";
 import HeroB from "./components/HeroB"; // ← 🟢 これを追加！
+import WorksB from "./components/WorksB";
+
 
 export default function AppB() {
   return (
@@ -10,6 +12,10 @@ export default function AppB() {
       <main className="pt-24 px-6">
         {/* Heroセクション */}
         <HeroB />  {/* ← 🟢 ここで呼び出す！ */}
+
+        {/* Worksセクション */}
+        <WorksB />
+
 
         {/* 下の説明テキストは仮置きなので消してOK */}
         {/* <h2 className="text-xl text-gray-700 font-normal">
