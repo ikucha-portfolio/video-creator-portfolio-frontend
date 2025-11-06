@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function Hero({ onMoreClick }) {
   return (
     <section
   id="hero"
@@ -25,12 +25,13 @@ export default function Hero() {
 
   {/* MORE */}
   <button
-    translate="no"
-    className="group mt-2 inline-flex items-center gap-2 text-[#7FB3D5] font-medium tracking-wider
-               hover:text-[#A8D8EA] active:scale-[0.97]
-               transition-transform duration-300 ease-out"
+  translate="no"
+  onClick={onMoreClick} // ← この1行を追加
+  className="group mt-2 inline-flex items-center gap-2 text-[#7FB3D5] font-medium tracking-wider
+             hover:text-[#A8D8EA] active:scale-[0.97]
+             transition-transform duration-300 ease-out"
   >
-    MORE
+    About
     <span className="w-8 h-0.5 bg-[#A8D8EA] group-hover:w-16 transition-all duration-700 ease-in-out"></span>
   </button>
 </div>

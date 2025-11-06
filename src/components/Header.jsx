@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-export default function Header({ scrollToSection, menuItems }) {
+export default function Header({ scrollToSection, menuItems, onAboutClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -35,7 +35,13 @@ export default function Header({ scrollToSection, menuItems }) {
           {menuItems.map((item) => (
             <button
               key={item.label}
-              onClick={() => scrollToSection(item.href.slice(1))}
+              onClick={() => {
+             if (item.label === "About") {
+              onAboutClick(); // ← ここでAboutページに切り替える
+             } else {
+             scrollToSection(item.href.slice(1));
+             }
+            }}
               className="text-foreground hover:text-primary transition"
             >
               {item.label}
@@ -55,9 +61,13 @@ export default function Header({ scrollToSection, menuItems }) {
             <button
               key={item.label}
               onClick={() => {
-                scrollToSection(item.href.slice(1));
-                setMenuOpen(false);
-              }}
+             if (item.label === "About") {
+              onAboutClick();
+             } else {
+              scrollToSection(item.href.slice(1));
+            }
+             setMenuOpen(false);
+            }}
               className="text-lg font-medium text-foreground hover:text-primary transition"
             >
               {item.label}
