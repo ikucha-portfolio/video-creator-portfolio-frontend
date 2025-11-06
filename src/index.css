@@ -2,6 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  /* 上→中→下 の3階調（明るめ・抜け感重視） */
+  --teal-top:    #0E4C48;  /* 上：やや暗い深緑 */
+  --teal-mid:    #1E6D66;  /* 中：基調の青緑 */
+  --teal-bottom: #86D2D8;  /* 下：明るい水色寄り */
+}
+
+/* ===== 奥行きのある“縦グラデ”ベース ===== */
+@layer utilities {
+  .bg-hero-vert {
+    background-image:
+      /* 最下層：上→下のはっきりした縦グラデ */
+      linear-gradient(180deg,
+        var(--teal-top) 0%,
+        var(--teal-mid) 46%,
+        var(--teal-bottom) 100%);
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* ===== 立体感（上部ハイライト＋下部の落ち影） ===== */
+  .hero-depth {
+    /* 多層にするための追加レイヤを重ねる */
+    background-image:
+      radial-gradient(1100px 520px at 50% -8%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.00) 60%),
+      radial-gradient(1100px 520px at 50% 112%, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.00) 60%),
+      linear-gradient(180deg,
+        var(--teal-top) 0%,
+        var(--teal-mid) 46%,
+        var(--teal-bottom) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* ===== 周辺減光（弱め） ===== */
+  .hero-vignette {
+    box-shadow:
+      inset 0 34px 120px rgba(0,0,0,0.16),
+      inset 0 -28px 90px rgba(0,0,0,0.14);
+  }
+
+  /* ===== ガラスの“艶”を重ねる（シーン／ハイライト） ===== */
+  .hero-glass {
+    position: relative;
+    isolation: isolate; /* 擬似要素のブレンドを閉じ込める */
+  }
+  .hero-glass::before{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    /* 上から差す光のガラス艶＋細い縦のグロス */
+    background:
+      linear-gradient(to bottom,
+        rgba(255,255,255,0.28) 0%,
+        rgba(255,255,255,0.10) 12%,
+        rgba(255,255,255,0.00) 32%),
+      linear-gradient(90deg,
+        rgba(255,255,255,0.10) 0%,
+        rgba(255,255,255,0.00) 18%,
+        rgba(255,255,255,0.00) 82%,
+        rgba(255,255,255,0.08) 100%);
+    mix-blend-mode: screen; /* ガラスっぽい抜け感 */
+  }
+  .hero-glass::after{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:.06;               /* 微粒ノイズで質感を出す */
+    background-image: url("data:image/svg+xml;utf8,\
+      <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>\
+      <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter>\
+      <rect width='120' height='120' filter='url(%23n)' opacity='0.35'/></svg>");
+    background-size: 240px 240px;
+    mix-blend-mode: overlay;
+  }
+
+  /* 必要時のみ：文字可読性ベール */
+  .hero-overlay-10 { background-color: rgba(0,0,0,.10); }
+  .hero-overlay-15 { background-color: rgba(0,0,0,.15); }
+}
+
 /* Tailwindベースの軽い調整 */
 html, body {
   margin: 0;
