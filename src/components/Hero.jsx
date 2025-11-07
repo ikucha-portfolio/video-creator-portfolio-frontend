@@ -5,7 +5,7 @@ export default function Hero({ onMoreClick }) {
   className="
     pt-32 md:pt-40 pb-20 md:pb-32
     relative
-    bg-hero-vert hero-depth hero-vignette hero-glass
+    bg-hero-figma hero-vignette-sm hero-glass
     text-white
   "
 >
