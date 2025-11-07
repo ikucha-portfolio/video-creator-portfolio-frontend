@@ -1,8 +1,9 @@
 // src/AppB.jsx
 import HeaderB from "./components/HeaderB";
-import HeroB from "./components/HeroB"; // ← 🟢 これを追加！
+import HeroB from "./components/HeroB";
 import WorksB from "./components/WorksB";
-
+import { ContactSection } from "./components/ContactB";
+import { FooterB } from "./components/FooterB";
 
 export default function AppB() {
   return (
@@ -11,17 +12,19 @@ export default function AppB() {
 
       <main className="pt-24 px-6">
         {/* Heroセクション */}
-        <HeroB />  {/* ← 🟢 ここで呼び出す！ */}
+        <HeroB />
 
         {/* Worksセクション */}
         <WorksB />
 
+        {/* Contactセクション */}
+        <ContactSection />
 
-        {/* 下の説明テキストは仮置きなので消してOK */}
-        {/* <h2 className="text-xl text-gray-700 font-normal">
-          ここにHeroBなどを追加していきます。
-        </h2> */}
+
+        {/* Footerセクション */}
+        <FooterB />
       </main>
     </div>
+
   );
 }
