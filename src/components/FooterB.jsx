@@ -1,26 +1,26 @@
-// src/components/FooterB.jsx
-
 export function FooterB() {
   return (
-    <footer className="py-12 px-6 lg:px-12 bg-[color:var(--background)] border-t border-[color:var(--border)]">
-      <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* コピーライト */}
-          <div>
-            <p className="text-[color:var(--muted-foreground)] text-sm">
-              © {new Date().getFullYear()} 映像工房. All rights reserved.
-            </p>
-          </div>
+    <footer className="py-10 px-6 lg:px-12 bg-[#FAFAFA] border-t border-[#E5E5E5] rounded-b-[24px]">
+      <div className="max-w-5xl mx-auto text-center space-y-6">
+        {/* コピーライト */}
+        <p className="text-[#555] text-sm">
+          © {new Date().getFullYear()} 映像工房. 無断転載を禁じます。
+        </p>
 
-          {/* ナビゲーションリンク */}
-          <div className="flex gap-8 text-sm text-[color:var(--muted-foreground)]">
-            <a href="#" className="hover:text-[color:var(--accent)] transition-colors">
-              プライバシーポリシー
-            </a>
-            <a href="#" className="hover:text-[color:var(--accent)] transition-colors">
-              利用規約
-            </a>
-          </div>
+        {/* リンク */}
+        <div className="flex justify-center gap-10 text-sm text-[#89C4E1] font-normal">
+          <a
+            href="#"
+            className="hover:text-[#6BB3D1] transition-colors duration-200"
+          >
+            プライバシーポリシー
+          </a>
+          <a
+            href="#"
+            className="hover:text-[#6BB3D1] transition-colors duration-200"
+          >
+            利用規約
+          </a>
         </div>
       </div>
     </footer>

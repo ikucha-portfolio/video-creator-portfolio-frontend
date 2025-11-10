@@ -1,20 +1,6 @@
-// src/components/ContactB.jsx
 import { Mail, Instagram, Youtube } from "lucide-react";
 
-// ✅ ShadcnのButtonがない場合に備えて、
-// 通常のbuttonタグでも動くようにここで簡易ボタンを定義
-function Button({ children, className = "", ...props }) {
-  return (
-    <button
-      {...props}
-      className={`rounded-md font-medium transition-all duration-300 ${className}`}
-    >
-      {children}
-    </button>
-  );
-}
-
-// ✅ Xアイコン（SVG）
+// X（旧Twitter）アイコン
 const XIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -26,69 +12,48 @@ const XIcon = () => (
   </svg>
 );
 
-// ✅ SNSリンク設定
 const socialLinks = [
-  {
-    name: "Instagram",
-    icon: Instagram,
-    url: "#",
-    color: "hover:text-[#E4405F]",
-  },
-  {
-    name: "YouTube",
-    icon: Youtube,
-    url: "#",
-    color: "hover:text-[#FF0000]",
-  },
-  {
-    name: "X",
-    icon: XIcon,
-    url: "#",
-    color: "hover:text-foreground",
-  },
+  { name: "Instagram", icon: Instagram, url: "#", color: "hover:text-[#E4405F]" },
+  { name: "YouTube", icon: Youtube, url: "#", color: "hover:text-[#FF0000]" },
+  { name: "X", icon: XIcon, url: "#", color: "hover:text-[#111]" },
 ];
 
-// ✅ メインコンポーネント
+// ✅ Contact セクションのみ
 export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 px-6 lg:px-12 bg-[color:var(--background-ivory)] relative"
+      className="relative py-20 lg:py-28 px-6 lg:px-12 bg-[#FAFAFA] text-center"
     >
-      {/* トップの淡いボーダー */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[color:var(--accent)] to-transparent"></div>
+      {/* 青い仕切りライン */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#A9D7E8]/80 to-transparent" />
 
-      <div className="container mx-auto max-w-4xl">
-        {/* セクションタイトル */}
-        <div className="text-center mb-12 lg:mb-16">
-          <p className="text-[color:var(--accent)] text-sm tracking-[0.3em] uppercase mb-4">
-            Contact
-          </p>
-          <h2 className="text-3xl lg:text-5xl mb-6 text-[color:var(--foreground)]">
-            お問い合わせ
-          </h2>
-          <p className="text-[color:var(--muted-foreground)] text-lg leading-relaxed max-w-2xl mx-auto">
-            ご相談やお見積もりは無料です。
-            <br />
-            お気軽にお問い合わせください。
-          </p>
-        </div>
+      <div className="max-w-3xl mx-auto">
+        {/* 見出し */}
+        <p className="text-[#89C4E1] text-sm tracking-[0.25em] uppercase mb-3">
+          CONTACT
+        </p>
+        <h2 className="text-[clamp(26px,5vw,38px)] font-medium text-[#222] mb-6">
+          お問い合わせ
+        </h2>
+        <p className="text-[#555] text-[16px] leading-relaxed mb-10">
+          ご相談やお見積もりは無料です。
+          <br />
+          お気軽にお問い合わせください。
+        </p>
 
         {/* メインボタン */}
-        <div className="flex justify-center mb-12 lg:mb-16">
-          <Button
-            className="bg-[color:var(--accent)] hover:bg-[color:var(--accent-soft)] text-white shadow-xl hover:shadow-2xl px-12 py-6 text-lg group"
-          >
-            <Mail className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform inline" />
-            お問い合わせフォームへ
-          </Button>
-        </div>
+        <a
+          href="#"
+          className="inline-flex items-center justify-center gap-3 bg-[#89C4E1] text-white text-[15px] font-medium py-3 px-10 rounded-sm shadow-md hover:bg-[#7ABAD7] hover:shadow-lg transition-all duration-300"
+        >
+          <Mail className="h-5 w-5" />
+          お問い合わせフォームへ
+        </a>
 
         {/* SNSリンク */}
-        <div className="space-y-6">
-          <p className="text-center text-[color:var(--muted-foreground)]">
-            SNSでもつながりましょう
-          </p>
+        <div className="mt-12">
+          <p className="text-[#555] mb-6">SNSでもつながりましょう</p>
           <div className="flex justify-center gap-6">
             {socialLinks.map((social) => {
               const Icon = social.icon;
@@ -98,7 +63,7 @@ export function ContactSection() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-12 h-12 border-2 border-[color:var(--border)] flex items-center justify-center hover:border-[color:var(--accent)] transition-all duration-300 group ${social.color}`}
+                  className={`w-12 h-12 border border-[#DDD] flex items-center justify-center hover:border-[#89C4E1] transition-all duration-300 ${social.color}`}
                   aria-label={social.name}
                 >
                   <Icon />
@@ -108,14 +73,14 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* フッター情報 */}
-        <div className="mt-16 pt-12 border-t border-[color:var(--border)] text-center space-y-4">
-          <p className="text-[color:var(--muted-foreground)]">
+        {/* 補足テキスト */}
+        <div className="mt-16 pt-10 border-t border-[#E5E5E5] space-y-4 text-center">
+          <p className="text-[#555] leading-relaxed text-[15px]">
             日本語・中国語でのお問い合わせに対応しています
             <br />
             日本語・中文諮詢都歡迎
           </p>
-          <p className="text-sm text-[color:var(--muted-foreground)]">
+          <p className="text-[#777] text-[14px]">
             通常1〜2営業日以内にご返信いたします
           </p>
         </div>
