@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import { Link } from "react-router-dom"; // ← これを追加！
 
 const Arrow = ({ className = "" }) => (
   <svg
@@ -57,7 +58,6 @@ export default function HeroB() {
 
         {/* ===== CTAボタン群 ===== */}
         <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-start gap-3 md:gap-5">
-          {/* 作品を見る */}
           <a
             href="#works"
             className="group flex items-center justify-center gap-2 bg-[#1A1A1A] text-white text-[15px] font-medium
@@ -69,7 +69,6 @@ export default function HeroB() {
             <Play className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
-          {/* お問い合わせ */}
           <a
             href="#contact"
             className="flex items-center justify-center border-[1.5px] border-[#1A1A1A] text-[#1A1A1A] text-[15px] font-medium
@@ -82,9 +81,12 @@ export default function HeroB() {
         </div>
 
         {/* ===== 制作者リンク ===== */}
-        <div className="mt-10 md:mt-14 text-[#666] text-sm md:text-base font-medium flex items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer">
+        <Link
+          to="/about"
+          className="mt-10 md:mt-14 text-[#666] text-sm md:text-base font-medium flex items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer"
+        >
           制作者について詳しく <Arrow className="w-4 h-4" />
-        </div>
+        </Link>
       </div>
     </section>
   );

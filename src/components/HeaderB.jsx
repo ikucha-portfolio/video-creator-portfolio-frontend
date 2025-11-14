@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import { Link } from "react-router-dom"; // ← これを追加！
 
-export default function Header() {
+export default function HeaderB() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -21,12 +22,12 @@ export default function Header() {
         "
       >
         {/* ロゴ */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className="text-[#1A1A1A] text-lg md:text-xl font-medium tracking-wide"
         >
           映像工房
-        </a>
+        </Link>
 
         {/* メニューアイコン（モバイル） */}
         <button
@@ -42,9 +43,12 @@ export default function Header() {
           <a href="#works" className="hover:text-[#7FB3D5] transition-colors">
             作品
           </a>
-          <a href="#about" className="hover:text-[#7FB3D5] transition-colors">
+          <Link
+            to="/about"
+            className="hover:text-[#7FB3D5] transition-colors"
+          >
             制作者について
-          </a>
+          </Link>
           <a href="#contact" className="hover:text-[#7FB3D5] transition-colors">
             お問い合わせ
           </a>
@@ -62,13 +66,13 @@ export default function Header() {
             >
               作品
             </a>
-            <a
-              href="#about"
+            <Link
+              to="/about"
               onClick={() => setIsOpen(false)}
               className="hover:text-[#7FB3D5] transition-colors"
             >
               制作者について
-            </a>
+            </Link>
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
