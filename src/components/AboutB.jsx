@@ -1,22 +1,30 @@
 // src/components/AboutB.jsx
-import { ArrowLeft, Camera, Monitor, Mail, Instagram, Youtube } from "lucide-react";
+import {
+  ArrowLeft,
+  Camera,
+  Monitor,
+  Mail,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 
-// X（旧Twitter）アイコン
+// X（旧Twitter）
 const XIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
-// 共通 Button（角丸なし）
+// Hero 準拠：角丸なし Button
 const Button = ({ children, className = "", ...props }) => (
   <button
     className={`
       bg-[#89C4E1] text-white 
       px-8 py-4 text-[15px]
-      shadow-md hover:bg-[#7ABAD7] 
+      shadow-md hover:bg-[#7ABAD7]
       transition-all duration-300
       flex items-center justify-center
+      rounded-none
       ${className}
     `}
     {...props}
@@ -25,9 +33,16 @@ const Button = ({ children, className = "", ...props }) => (
   </button>
 );
 
-// 共通 Card（角丸なし）
+// Hero 準拠：角丸なし Card
 const Card = ({ children, className = "" }) => (
-  <div className={`bg-white border border-[#DDD] shadow-sm p-6 ${className}`}>
+  <div
+    className={`
+      bg-white border border-[#E5E5E5]
+      p-6 shadow-sm
+      rounded-none
+      ${className}
+    `}
+  >
     {children}
   </div>
 );
@@ -42,27 +57,30 @@ export default function AboutB({ onBack }) {
     {
       year: "2021 - 2023",
       title: "台湾・国立台湾大学 留学",
-      description: "中国語を学びながら、現地の映像制作会社でインターン経験",
+      description: "中国語を学びつつ、現地の映像制作会社でインターン",
     },
     {
       year: "2019 - 2021",
       title: "映像制作の基礎を学ぶ",
-      description: "独学で動画編集を開始。YouTubeチャンネル運営でスキルを磨く",
+      description: "独学で動画編集開始。YouTube運営でスキルを磨く",
     },
   ];
 
   const values = [
     {
       title: "誠実さ",
-      description: "お客様の想いを大切に、期待以上の作品を届けることを約束します。",
+      description:
+        "お客様の想いを大切に、期待以上の作品を届けることを心がけています。",
     },
     {
       title: "柔軟性",
-      description: "駆け出しだからこそ、ご要望に合わせて柔軟に対応できます。",
+      description:
+        "駆け出しだからこそ、ご要望に合わせ柔軟に対応できます。",
     },
     {
       title: "成長意欲",
-      description: "常に新しい技術を学び、より良い作品づくりに挑戦し続けます。",
+      description:
+        "常に技術を学び、より良い表現を目指して作品づくりを行っています。",
     },
   ];
 
@@ -73,9 +91,9 @@ export default function AboutB({ onBack }) {
       items: [
         "Sony α7 IV",
         "DJI Ronin-S（ジンバル）",
-        "各種レンズ（単焦点・ズーム）",
-        "RODE VideoMic Pro+",
-        "ZOOM H6（レコーダー）",
+        "単焦点 / ズームレンズ",
+        "RODE Video Mic",
+        "ZOOM H6",
         "照明機材一式",
       ],
     },
@@ -83,7 +101,8 @@ export default function AboutB({ onBack }) {
       icon: Monitor,
       category: "編集ソフト",
       items: [
-        "Premiere Pro / After Effects",
+        "Adobe Premiere Pro",
+        "Adobe After Effects",
         "DaVinci Resolve",
         "Photoshop / Illustrator",
       ],
@@ -97,15 +116,16 @@ export default function AboutB({ onBack }) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-gray-800">
-      {/* ==== 戻るボタン ==== */}
-      <header className="fixed top-0 left-0 right-0 bg-white backdrop-blur-md border-b border-gray-200 z-50">
+    <div className="min-h-screen bg-[#FAFAFA] text-[#222]">
+
+      {/* ==== Header ==== */}
+      <header className="fixed top-0 left-0 right-0 bg-white border-b border-[#E5E5E5] z-50">
         <div className="px-4 py-4">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition group"
+            className="flex items-center gap-2 text-[#222] hover:opacity-70 transition"
           >
-            <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition" />
+            <ArrowLeft className="h-5 w-5" />
             戻る
           </button>
         </div>
@@ -114,79 +134,89 @@ export default function AboutB({ onBack }) {
       <main className="pt-28 pb-20 space-y-20">
 
         {/* ==== プロフィール ==== */}
-        <section className="px-6 max-w-xl mx-auto text-center fade-in show">
-          <p className="text-sm tracking-[0.2em] text-gray-400 mb-2">ABOUT ME</p>
-          <h1 className="text-3xl font-semibold mb-8">制作者について</h1>
+        <section className="px-6 max-w-xl mx-auto text-center">
+          <p className="text-[#555] tracking-[0.2em] text-sm mb-2">
+            ABOUT ME
+          </p>
+
+          <h1 className="text-[28px] font-medium text-[#222] mb-8">
+            制作者について
+          </h1>
 
           <img
             src="https://images.unsplash.com/photo-1638545818407-ac7a54b544fd?auto=format&fit=crop&w=1080&q=80"
-            alt="制作者"
-            className="w-full shadow-md object-cover zoom show"
+            className="w-full shadow-[0_6px_20px_rgba(0,0,0,0.1)] object-cover rounded-none"
           />
 
-          <h2 className="text-2xl font-semibold mt-8">田中 美咲</h2>
+          <h2 className="text-2xl font-medium text-[#222] mt-8">田中 美咲</h2>
+
           <p className="text-[#89C4E1] text-lg mb-6">Video Creator</p>
 
-          <div className="text-left space-y-4 leading-relaxed text-gray-700">
-            <p>はじめまして。駆け出しの動画クリエイターとして活動しています。</p>
-            <p>
-              台湾での留学経験を通じ、多様な文化や価値観に触れ、
-              映像を通じて“想いを伝えること”の大切さを学びました。
+          <div className="text-left space-y-4 leading-relaxed">
+            <p className="text-[#555]">
+              駆け出しの動画クリエイターとして活動しています。
             </p>
-            <p>日本語・中国語での対応が可能です。</p>
+            <p className="text-[#555]">
+              台湾留学を通じて多様な価値観に触れ、映像で想いを伝える大切さを学びました。
+            </p>
+            <p className="text-[#555]">日本語・中国語対応可能です。</p>
           </div>
         </section>
 
         {/* ==== 経歴 ==== */}
-        <section className="px-6 max-w-xl mx-auto fade-in show">
-          <h2 className="text-2xl font-semibold mb-2">経歴</h2>
-          <p className="text-gray-500 mb-8">これまでの歩み</p>
+        <section className="px-6 max-w-xl mx-auto">
+          <h2 className="text-2xl font-medium text-[#222] mb-2">経歴</h2>
+          <p className="text-[#555] mb-8">これまでの歩み</p>
 
           <div className="space-y-6">
             {experience.map((exp, i) => (
-              <Card key={i} className="hover-lift">
+              <Card key={i}>
                 <p className="text-[#89C4E1] font-medium">{exp.year}</p>
-                <h3 className="text-lg font-semibold mt-1">{exp.title}</h3>
-                <p className="text-gray-600 mt-2">{exp.description}</p>
+                <h3 className="text-lg font-medium text-[#222] mt-1">
+                  {exp.title}
+                </h3>
+                <p className="text-[#555] mt-2">{exp.description}</p>
               </Card>
             ))}
           </div>
         </section>
 
-        {/* ==== 大切にしていること ==== */}
-        <section className="px-6 max-w-xl mx-auto fade-in show">
-          <h2 className="text-2xl font-semibold mb-2">大切にしていること</h2>
-          <p className="text-gray-500 mb-8">制作における価値観</p>
+        {/* ==== 価値観 ==== */}
+        <section className="px-6 max-w-xl mx-auto">
+          <h2 className="text-2xl font-medium text-[#222] mb-2">大切にしていること</h2>
+          <p className="text-[#555] mb-8">制作における価値観</p>
 
           <div className="space-y-6">
             {values.map((v, i) => (
-              <Card key={i} className="hover-lift">
-                <div className="w-12 h-1 bg-[#89C4E1] mb-4"></div>
-                <h3 className="text-lg font-semibold">{v.title}</h3>
-                <p className="text-gray-600 mt-2">{v.description}</p>
+              <Card key={i}>
+                <div className="w-12 h-1 bg-[#89C4E1] mb-4" />
+                <h3 className="text-lg font-medium text-[#222]">{v.title}</h3>
+                <p className="text-[#555] mt-2">{v.description}</p>
               </Card>
             ))}
           </div>
         </section>
 
         {/* ==== 使用機材 ==== */}
-        <section className="px-6 max-w-xl mx-auto fade-in show">
-          <h2 className="text-2xl font-semibold mb-2">使用機材・ソフト</h2>
-          <p className="text-gray-500 mb-8">制作で使用している機材とソフトウェア</p>
+        <section className="px-6 max-w-xl mx-auto">
+          <h2 className="text-2xl font-medium text-[#222] mb-2">使用機材・ソフト</h2>
+          <p className="text-[#555] mb-8">制作で使用している機材</p>
 
           <div className="space-y-8">
             {equipment.map((eq, i) => {
               const Icon = eq.icon;
               return (
-                <Card key={i} className="hover-lift">
+                <Card key={i}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-[#E6F4FA] flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#E6F4FA] flex items-center justify-center rounded-none">
                       <Icon className="text-[#89C4E1] h-6 w-6" />
                     </div>
-                    <h3 className="text-lg font-semibold">{eq.category}</h3>
+                    <h3 className="text-lg font-medium text-[#222]">
+                      {eq.category}
+                    </h3>
                   </div>
 
-                  <ul className="text-gray-600 space-y-2 ml-2">
+                  <ul className="text-[#555] space-y-2 ml-2">
                     {eq.items.map((item, j) => (
                       <li key={j}>• {item}</li>
                     ))}
@@ -198,60 +228,82 @@ export default function AboutB({ onBack }) {
         </section>
 
         {/* ==== お問い合わせ ==== */}
-        <section className="px-6 max-w-xl mx-auto text-center fade-in show">
+<section
+  className="relative py-20 lg:py-24 px-6 max-w-3xl mx-auto text-center bg-[#FAFAFA]"
+>
+  {/* 青い仕切りライン（ホームと同じ） */}
+  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#A9D7E8]/80 to-transparent" />
 
-          <h3 className="text-2xl font-semibold mb-4">
-            一緒に素敵な映像を作りましょう
-          </h3>
+  {/* 見出し（文言そのまま） */}
+  <h3 className="text-[clamp(26px,5vw,38px)] font-medium text-[#222] mb-6">
+    一緒に素敵な映像を作りましょう
+  </h3>
 
-          <p className="text-gray-600 mb-10 leading-relaxed">
-            ご相談やお見積もりは無料です。
-            <br />お気軽にお問い合わせください。
-          </p>
+  <p className="text-[#555] text-[16px] leading-relaxed mb-10">
+    ご相談やお見積もりは無料です。
+    <br />
+    お気軽にお問い合わせください。
+  </p>
 
-          <Button className="mx-auto w-full max-w-sm hover-lift">
-            <Mail className="h-5 w-5 mr-2" />
-            お問い合わせフォームへ
-          </Button>
+  {/* メインボタン（ホームと完全一致UI） */}
+  <a
+    href="#"
+    className="
+      inline-flex items-center justify-center gap-3
+      bg-[#89C4E1] text-white text-[15px] font-medium
+      py-3 px-10 rounded-sm shadow-md
+      hover:bg-[#7ABAD7] hover:shadow-lg
+      transition-all duration-300
+    "
+  >
+    <Mail className="h-5 w-5" />
+    お問い合わせフォームへ
+  </a>
 
-          {/* SNS */}
-          <div className="mt-12">
-            <p className="text-gray-500 mb-4">SNSでもつながりましょう</p>
+  {/* SNS */}
+  <div className="mt-12">
+    <p className="text-[#555] mb-6">SNSでもつながりましょう</p>
 
-            <div className="flex justify-center gap-6">
-              {socialLinks.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.name}
-                    className="
-                      w-12 h-12 border border-[#CCC] 
-                      flex items-center justify-center 
-                      hover:border-[#89C4E1] hover-lift
-                    "
-                  >
-                    <Icon className="text-gray-500" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
+    <div className="flex justify-center gap-6">
+      {socialLinks.map((s) => {
+        const Icon = s.icon;
+        return (
+          <a
+            key={s.name}
+            href={s.url ?? "#"}
+            className="
+              w-12 h-12 border border-[#DDD]
+              flex items-center justify-center
+              hover:border-[#89C4E1]
+              transition-all duration-300
+              rounded-none
+            "
+          >
+            <Icon className="text-[#555]" />
+          </a>
+        );
+      })}
+    </div>
+  </div>
 
-          {/* 戻るボタン */}
-          <div className="mt-12 border-t border-gray-200 pt-8">
-            <button
-              onClick={onBack}
-              className="
-                border-2 border-gray-700 px-6 py-3 
-                hover:bg-gray-700 hover:text-white 
-                transition flex items-center gap-2 mx-auto hover-lift
-              "
-            >
-              <ArrowLeft className="h-4 w-4" />
-              トップページに戻る
-            </button>
-          </div>
-        </section>
+  {/* 仕切り＋戻る */}
+  <div className="mt-16 pt-10 border-t border-[#E5E5E5]">
+    <button
+      onClick={onBack}
+      className="
+        inline-flex items-center justify-center gap-2
+        border-2 border-[#222] px-6 py-3
+        hover:bg-[#222] hover:text-white
+        text-[#222]
+        transition-all duration-300
+        rounded-none
+      "
+    >
+      トップページに戻る
+    </button>
+  </div>
+</section>
+
       </main>
     </div>
   );
