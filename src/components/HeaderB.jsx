@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
-import { Link } from "react-router-dom"; // ← これを追加！
+import { Link } from "react-router-dom";
 
 export default function HeaderB() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,41 +21,41 @@ export default function HeaderB() {
           h-16 md:h-20
         "
       >
-        {/* ロゴ */}
+        {/* Logo */}
         <Link
           to="/"
           className="text-[#1A1A1A] text-lg md:text-xl font-medium tracking-wide"
         >
-          映像工房
+          Ryan.Chronicle
         </Link>
 
-        {/* メニューアイコン（モバイル） */}
+        {/* Mobile Menu icon */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-[#1A1A1A] md:hidden transition-transform duration-300 active:scale-95"
-          aria-label="メニューを開く"
+          aria-label="Open navigation menu"
         >
           <Menu size={24} />
         </button>
 
-        {/* ナビゲーション（PC表示） */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 text-[#333] text-sm font-medium">
           <a href="#works" className="hover:text-[#7FB3D5] transition-colors">
-            作品
+            Works
           </a>
           <Link
             to="/about"
             className="hover:text-[#7FB3D5] transition-colors"
           >
-            制作者について
+            About
           </Link>
           <a href="#contact" className="hover:text-[#7FB3D5] transition-colors">
-            お問い合わせ
+            Contact
           </a>
         </nav>
       </div>
 
-      {/* モバイルメニュー（開閉式） */}
+      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100">
           <nav className="flex flex-col items-center gap-4 py-6 text-[#333] text-base font-medium">
@@ -64,21 +64,21 @@ export default function HeaderB() {
               onClick={() => setIsOpen(false)}
               className="hover:text-[#7FB3D5] transition-colors"
             >
-              作品
+              Works
             </a>
             <Link
               to="/about"
               onClick={() => setIsOpen(false)}
               className="hover:text-[#7FB3D5] transition-colors"
             >
-              制作者について
+              About
             </Link>
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
               className="hover:text-[#7FB3D5] transition-colors"
             >
-              お問い合わせ
+              Contact
             </a>
           </nav>
         </div>

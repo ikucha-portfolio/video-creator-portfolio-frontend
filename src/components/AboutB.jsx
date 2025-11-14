@@ -126,7 +126,7 @@ export default function AboutB({ onBack }) {
             className="flex items-center gap-2 text-[#222] hover:opacity-70 transition"
           >
             <ArrowLeft className="h-5 w-5" />
-            戻る
+            Top Pageへ
           </button>
         </div>
       </header>
@@ -288,19 +288,15 @@ export default function AboutB({ onBack }) {
 
   {/* 仕切り＋戻る */}
   <div className="mt-16 pt-10 border-t border-[#E5E5E5]">
-    <button
-      onClick={onBack}
-      className="
-        inline-flex items-center justify-center gap-2
-        border-2 border-[#222] px-6 py-3
-        hover:bg-[#222] hover:text-white
-        text-[#222]
-        transition-all duration-300
-        rounded-none
-      "
-    >
-      トップページに戻る
-    </button>
+    <div className="px-4 py-4">
+          <button
+            onClick={onBack}
+            className="flex items-center gap-2 text-[#222] hover:opacity-70 transition"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            Top Pageへ
+          </button>
+        </div>
   </div>
 </section>
 
