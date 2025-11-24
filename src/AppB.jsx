@@ -7,24 +7,20 @@ import { FooterB } from "./components/FooterB";
 
 export default function AppB() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] antialiased">
+    <div
+      className="
+        min-h-screen antialiased
+        bg-[linear-gradient(to_bottom_left,var(--grad-top),var(--grad-2),var(--grad-3),var(--grad-4),var(--grad-bottom))]
+      "
+    >
       <HeaderB />
 
       <main className="pt-24 px-6">
-        {/* Heroセクション */}
         <HeroB />
-
-        {/* Worksセクション */}
         <WorksB />
-
-        {/* Contactセクション */}
         <ContactSection />
-
-
-        {/* Footerセクション */}
         <FooterB />
       </main>
     </div>
-
   );
 }

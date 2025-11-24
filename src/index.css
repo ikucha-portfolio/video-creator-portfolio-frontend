@@ -1,3 +1,6 @@
+/* Google Fonts 明朝体 */
+@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,3 +55,16 @@ a {
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
+/* === グラデ用CSS変数 === */
+:root {
+  --grad-top: #215150;
+  --grad-2: #3b828c;
+  --grad-3: #368790;
+  --grad-4: #56a6b2;
+  --grad-bottom: #7ec0cc;
+}
+
+/* === 明朝体テーマ === */
+.font-mincho {
+  font-family: "Yuji Syuku", "Hiragino Mincho ProN", serif;
+}
