@@ -23,7 +23,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 lg:py-28 px-6 lg:px-12 bg-[#FAFAFA] text-center"
+      className="relative py-20 lg:py-28 px-6 lg:px-12 relative bg-transparent text-center"
     >
       {/* 青い仕切りライン */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#A9D7E8]/80 to-transparent" />

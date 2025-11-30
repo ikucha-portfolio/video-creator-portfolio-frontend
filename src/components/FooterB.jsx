@@ -1,6 +1,6 @@
 export function FooterB() {
   return (
-    <footer className="py-10 px-6 lg:px-12 bg-[#FAFAFA] border-t border-[#E5E5E5] rounded-b-[24px]">
+    <footer className="py-10 px-6 lg:px-12 relative bg-transparent border-t border-[#E5E5E5] rounded-b-[24px]">
       <div className="max-w-5xl mx-auto text-center space-y-6">
         {/* コピーライト */}
         <p className="text-[#555] text-sm">

@@ -34,9 +34,10 @@ const works = [
 export default function WorksB() {
   return (
     <section
-      id="works"
-      className="py-20 lg:py-28 px-6 lg:px-12 bg-white relative"
-    >
+  id="works"
+  className="py-20 lg:py-28 px-6 lg:px-12 relative bg-transparent"
+>
+
       {/* トップボーダー */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#89C4E1] to-transparent" />
 
