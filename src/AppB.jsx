@@ -15,7 +15,7 @@ export default function AppB() {
     >
       <HeaderB />
 
-      <main className="pt-24 px-6">
+      <main className="pt-24 px-6 text-white-theme">
         <HeroB />
         <WorksB />
         <ContactSection />
@@ -24,3 +24,4 @@ export default function AppB() {
     </div>
   );
 }
+

@@ -68,3 +68,15 @@ a {
 .font-mincho {
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", serif;
 }
+/* === 白文字テーマ（全セクション用） === */
+.text-white-theme {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.text-white-theme h1,
+.text-white-theme h2,
+.text-white-theme h3,
+.text-white-theme p,
+.text-white-theme span {
+  color: rgba(255, 255, 255, 0.92);
+}
