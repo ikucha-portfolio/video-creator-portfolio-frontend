@@ -19,14 +19,23 @@ export default function HeroB() {
     <section className="pt-6 pb-16">
       <div className="max-w-5xl mx-auto px-6">
 
-        {/* ===== HERO画像 ===== */}
-        <div className="overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.08)] ring-1 ring-black/5">
-          <img
-            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop"
-            alt="Portfolio visual"
-            className="w-full h-[420px] sm:h-[480px] md:h-[540px] object-cover object-center"
-          />
-        </div>
+{/* ===== 背景動画 ===== */}
+<div className="relative w-full h-[420px] sm:h-[480px] md:h-[540px] overflow-hidden rounded-none shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
+
+  <video
+    className="absolute inset-0 w-full h-full object-cover"
+    src="/videos/hero-cover.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+  />
+
+  
+
+  {/* 暗いフィルターで文字を読みやすくする */}
+  <div className="absolute inset-0 bg-black/30"></div>
+</div>
 
         {/* ===== テキスト ===== */}
         <div className="mt-8 font-mincho text-white">
