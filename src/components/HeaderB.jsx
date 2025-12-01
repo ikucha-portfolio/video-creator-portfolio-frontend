@@ -25,6 +25,7 @@ export default function HeaderB() {
         <Link
           to="/"
           className="text-[#1A1A1A] text-lg md:text-xl font-medium tracking-wide"
+          translate="no"
         >
           Ryan.Chronicle
         </Link>
@@ -40,16 +41,17 @@ export default function HeaderB() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 text-[#333] text-sm font-medium">
-          <a href="#works" className="hover:text-[#7FB3D5] transition-colors">
+          <a href="#works" className="hover:text-[#7FB3D5] transition-colors" notranslate translate="no">
             Works
           </a>
           <Link
             to="/about"
-            className="hover:text-[#7FB3D5] transition-colors"
+            className="hover:text-[#7FB3D5] transition-colors" notranslate
+          translate="no"
           >
             About
           </Link>
-          <a href="#contact" className="hover:text-[#7FB3D5] transition-colors">
+          <a href="#contact" className="hover:text-[#7FB3D5] transition-colors" notranslate translate="no">
             Contact
           </a>
         </nav>
@@ -69,14 +71,14 @@ export default function HeaderB() {
             <Link
               to="/about"
               onClick={() => setIsOpen(false)}
-              className="hover:text-[#7FB3D5] transition-colors"
+              className="hover:text-[#7FB3D5] transition-colors" notranslate translate="no"
             >
               About
             </Link>
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="hover:text-[#7FB3D5] transition-colors"
+              className="hover:text-[#7FB3D5] transition-colors" notranslate translate="no"
             >
               Contact
             </a>

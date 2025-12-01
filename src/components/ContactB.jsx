@@ -30,7 +30,7 @@ export function ContactSection() {
 
       <div className="max-w-3xl mx-auto">
         {/* 見出し */}
-        <p className="text-[#89C4E1] text-sm tracking-[0.25em] uppercase mb-3">
+        <p className="text-[#89C4E1] text-sm tracking-[0.25em] uppercase mb-3" notranslate translate="no">
           CONTACT
         </p>
         <h2 className="text-[clamp(26px,5vw,38px)] font-medium text-[#222] mb-6">

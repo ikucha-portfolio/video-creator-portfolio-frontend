@@ -41,7 +41,7 @@ export default function HeroB() {
         <div className="mt-8 font-mincho text-white">
           <p
             translate="no"
-            className="text-xs tracking-[0.3em] uppercase opacity-80"
+            className="text-xs tracking-[0.3em] uppercase opacity-80" notranslatetranslate="no"
           >
             VIDEO CREATOR
           </p>
@@ -90,8 +90,8 @@ export default function HeroB() {
         <Link
           to="/about"
           className="mt-10 md:mt-14 text-white/80 text-sm md:text-base font-medium flex items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer"
-        >
-          制作者について詳しく <Arrow className="w-4 h-4" />
+        notranslate translate="no">
+          ABOUT ME <Arrow className="w-4 h-4" />
         </Link>
       </div>
     </section>
