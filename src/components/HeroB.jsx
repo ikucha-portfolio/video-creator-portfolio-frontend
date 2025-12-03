@@ -16,42 +16,39 @@ const Arrow = ({ className = "" }) => (
 
 export default function HeroB() {
   return (
-    <section className="pt-6 pb-16">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="relative w-full h-[100vh] overflow-hidden bg-black">
 
-{/* ===== 背景動画 ===== */}
-<div className="relative w-full h-[420px] sm:h-[480px] md:h-[540px] overflow-hidden rounded-none shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
+      {/* ===== 背景動画 ===== */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/videos/hero-cover.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
 
-  <video
-    className="absolute inset-0 w-full h-full object-cover"
-    src="/videos/hero-cover.mp4"
-    autoPlay
-    muted
-    loop
-    playsInline
-  />
+      {/* ===== 暗いフィルター ===== */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
-  
+      {/* ===== 中央テキスト & CTA ===== */}
+      <div className="relative z-10 h-full max-w-5xl mx-auto px-6 flex flex-col justify-center">
 
-  {/* 暗いフィルターで文字を読みやすくする */}
-  <div className="absolute inset-0 bg-black/30"></div>
-</div>
-
-        {/* ===== テキスト ===== */}
-        <div className="mt-8 font-serif text-white">
+        {/* テキスト */}
+        <div className="font-serif text-white">
           <p
             translate="no"
-            className="text-xs tracking-[0.3em] uppercase opacity-80" notranslatetranslate="no"
+            className="text-xs tracking-[0.3em] uppercase opacity-80"
           >
             VIDEO CREATOR
           </p>
 
-          <h1 className="mt-3 text-[clamp(28px,4.5vw,38px)] leading-snug font-medium">
+          <h1 className="mt-3 text-[clamp(32px,5vw,48px)] leading-snug font-medium">
             心に残る瞬間を、<br />
             映像に。
           </h1>
 
-          <p className="mt-4 text-[15px] leading-8 opacity-90">
+          <p className="mt-4 text-[16px] leading-8 opacity-90">
             駆け出しの動画クリエイターとして、<br />
             あなたの想いを丁寧に形にします。<br />
             <span className="text-[14px] opacity-90">
@@ -60,8 +57,8 @@ export default function HeroB() {
           </p>
         </div>
 
-        {/* ===== CTAボタン群 ===== */}
-        <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-start gap-3 md:gap-5">
+        {/* CTAボタン群 */}
+        <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-start gap-3 md:gap-5">
 
           {/* 作品ボタン */}
           <a
@@ -86,14 +83,16 @@ export default function HeroB() {
           </a>
         </div>
 
-        {/* ===== 制作者リンク ===== */}
+        {/* Aboutリンク */}
         <Link
           to="/about"
-          className="mt-10 md:mt-14 text-white/80 text-sm md:text-base font-medium flex items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer"
-        notranslate translate="no">
+          className="mt-10 text-white/80 text-sm md:text-base font-medium flex items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer"
+          translate="no"
+        >
           About <Arrow className="w-4 h-4" />
         </Link>
       </div>
+
     </section>
   );
 }
