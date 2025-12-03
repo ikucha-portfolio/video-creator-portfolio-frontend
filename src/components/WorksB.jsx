@@ -50,24 +50,6 @@ export default function WorksB() {
   >
     WORKS
   </p>
-
-  {/* 制作実績：明朝体 + サイズ調整 */}
-  <h2
-    className="
-      font-serif
-      text-white
-      text-[clamp(24px,4.5vw,34px)]
-      leading-tight
-      mb-4
-    "
-  >
-    制作実績
-  </h2>
-
-  {/* 説明文：サンセリフのまま */}
-  <p className="text-white/90 text-[16px] leading-relaxed max-w-2xl">
-    これまで手がけた映像作品の一部をご紹介します。
-  </p>
 </div>
 
 

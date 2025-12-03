@@ -1,6 +1,5 @@
 import { Mail, Instagram, Youtube } from "lucide-react";
 
-// X（旧Twitter）アイコン
 const XIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -13,56 +12,64 @@ const XIcon = () => (
 );
 
 const socialLinks = [
-  { name: "Instagram", icon: Instagram, url: "#", color: "hover:text-[#E4405F]" },
-  { name: "YouTube", icon: Youtube, url: "#", color: "hover:text-[#FF0000]" },
-  { name: "X", icon: XIcon, url: "#", color: "hover:text-[#111]" },
+  { name: "Instagram", icon: Instagram, url: "#" },
+  { name: "YouTube", icon: Youtube, url: "#" },
+  { name: "X", icon: XIcon, url: "#" },
 ];
 
-// ✅ Contact セクションのみ
 export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 lg:py-28 px-6 lg:px-12 relative bg-transparent text-center"
+      className="
+        relative py-24 px-6 lg:px-12 text-center scroll-rise
+      "
     >
-      {/* 青い仕切りライン */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#A9D7E8]/80 to-transparent" />
+      {/* ==== 上部の透明グラデーションライン（HERO/WORKSと統一） ==== */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
       <div className="max-w-3xl mx-auto">
-        {/* 見出し */}
-        <p className="text-[#89C4E1] text-sm tracking-[0.25em] uppercase mb-3" notranslate translate="no">
+
+        {/* CONTACT：控えめな英字 */}
+        <p
+          className="
+            text-white/60 tracking-[0.25em]
+            text-sm uppercase mb-4
+          "
+          translate="no"
+        >
           CONTACT
         </p>
-        <h2
-  className="
-    font-serif
-    text-[clamp(26px,5vw,38px)]
-    text-[#222]
-    mb-6
-  "
->
-  お問い合わせ
-</h2>
 
-
-        <p className="text-[#555] text-[16px] leading-relaxed mb-10">
+        {/* 説明文 */}
+        <p className="text-white/80 text-[16px] leading-relaxed mb-12">
           ご相談やお見積もりは無料です。
           <br />
           お気軽にお問い合わせください。
         </p>
 
-        {/* メインボタン */}
+        {/* ==== メインCTA ボタン（白枠 × ガラス） ==== */}
         <a
           href="#"
-          className="inline-flex items-center justify-center gap-3 bg-[#89C4E1] text-white text-[15px] font-medium py-3 px-10 rounded-sm shadow-md hover:bg-[#7ABAD7] hover:shadow-lg transition-all duration-300"
+          className="
+            inline-flex items-center justify-center gap-3
+            border border-white/60
+            text-white text-[15px]
+            py-3 px-10
+            rounded-sm
+            backdrop-blur-sm bg-white/10
+            hover:bg-white/20 hover:border-white
+            transition-all duration-300
+          "
         >
-          <Mail className="h-5 w-5" />
+          <Mail className="h-5 w-5 text-white" />
           お問い合わせフォームへ
         </a>
 
-        {/* SNSリンク */}
-        <div className="mt-12">
-          <p className="text-[#555] mb-6">SNSでもつながりましょう</p>
+        {/* ==== SNS === */}
+        <div className="mt-14">
+          <p className="text-white/70 mb-6">SNS でもつながりましょう</p>
+
           <div className="flex justify-center gap-6">
             {socialLinks.map((social) => {
               const Icon = social.icon;
@@ -70,29 +77,23 @@ export function ContactSection() {
                 <a
                   key={social.name}
                   href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-12 h-12 border border-[#DDD] flex items-center justify-center hover:border-[#89C4E1] transition-all duration-300 ${social.color}`}
-                  aria-label={social.name}
+                  className="
+                    w-12 h-12 flex items-center justify-center
+                    border border-white/40
+                    text-white
+                    backdrop-blur-sm bg-white/10
+                    hover:bg-white/20 hover:border-white
+                    transition-all duration-300
+                  "
+                  translate="no"
                 >
-                  <Icon />
+                  <Icon className="h-5 w-5" />
                 </a>
               );
             })}
           </div>
         </div>
-
-        {/* 補足テキスト */}
-        <div className="mt-16 pt-10 border-t border-[#E5E5E5] space-y-4 text-center">
-          <p className="text-[#555] leading-relaxed text-[15px]">
-            日本語・中国語でのお問い合わせに対応しています
-            <br />
-            日本語・中文諮詢都歡迎
-          </p>
-          <p className="text-[#777] text-[14px]">
-            通常1〜2営業日以内にご返信いたします
-          </p>
-        </div>
+        
       </div>
     </section>
   );
