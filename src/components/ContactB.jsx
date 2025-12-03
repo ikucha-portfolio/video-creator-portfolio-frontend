@@ -33,9 +33,18 @@ export function ContactSection() {
         <p className="text-[#89C4E1] text-sm tracking-[0.25em] uppercase mb-3" notranslate translate="no">
           CONTACT
         </p>
-        <h2 className="text-[clamp(26px,5vw,38px)] font-medium text-[#222] mb-6">
-          お問い合わせ
-        </h2>
+        <h2
+  className="
+    font-serif
+    text-[clamp(26px,5vw,38px)]
+    text-[#222]
+    mb-6
+  "
+>
+  お問い合わせ
+</h2>
+
+
         <p className="text-[#555] text-[16px] leading-relaxed mb-10">
           ご相談やお見積もりは無料です。
           <br />

@@ -89,9 +89,9 @@ export default function HeroB() {
         {/* ===== 制作者リンク ===== */}
         <Link
           to="/about"
-          className="mt-10 md:mt-14 text-white/80 text-sm md:text-base font-serif flex items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer"
+          className="mt-10 md:mt-14 text-white/80 text-sm md:text-base font-medium flex items-center gap-1 hover:gap-2 transition-all duration-300 cursor-pointer"
         notranslate translate="no">
-          ABOUT ME <Arrow className="w-4 h-4" />
+          About <Arrow className="w-4 h-4" />
         </Link>
       </div>
     </section>

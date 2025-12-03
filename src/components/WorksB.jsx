@@ -36,16 +36,40 @@ export default function WorksB() {
       <div className="max-w-6xl mx-auto">
 
         <div className="mb-14 text-left">
-          <p className="text-[#89C4E1] text-sm tracking-[0.25em] uppercase mb-3" notranslate translate="no">
-            WORKS
-          </p>
-          <h2 className="text-[clamp(28px,5vw,40px)] font-medium text-[#222] mb-4">
-            制作実績
-          </h2>
-          <p className="text-[#555] text-[16px] leading-relaxed max-w-2xl">
-            これまで手がけた映像作品の一部をご紹介します。
-          </p>
-        </div>
+  {/* WORKS：サンセリフ + 細め */}
+  <p
+    className="
+      text-[#89C4E1]
+      text-sm
+      tracking-[0.25em]
+      uppercase
+      mb-3
+      font-medium
+    "
+    translate="no"
+  >
+    WORKS
+  </p>
+
+  {/* 制作実績：明朝体 + サイズ調整 */}
+  <h2
+    className="
+      font-serif
+      text-white
+      text-[clamp(24px,4.5vw,34px)]
+      leading-tight
+      mb-4
+    "
+  >
+    制作実績
+  </h2>
+
+  {/* 説明文：サンセリフのまま */}
+  <p className="text-white/90 text-[16px] leading-relaxed max-w-2xl">
+    これまで手がけた映像作品の一部をご紹介します。
+  </p>
+</div>
+
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
           {works.map((work) => (
