@@ -37,12 +37,13 @@ export default function HeaderB() {
       >
         {/* Logo（浅葱色・光を帯びた色） */}
         <Link
-          to="/"
-          className="text-[#FFEFB3] text-lg md:text-xl font-medium tracking-wide"
-          translate="no"
-        >
-          Ryan.Chronicle
-        </Link>
+  to="/"
+  className="font-mincho text-[#FFEFB3] text-lg md:text-xl tracking-wide"
+  translate="no"
+>
+  RYAN.CHRONICLE
+</Link>
+
 
         {/* Mobile Menu icon（浅葱色） */}
         <button
