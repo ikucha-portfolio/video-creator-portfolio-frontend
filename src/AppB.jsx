@@ -15,7 +15,8 @@ export default function AppB() {
     >
       <HeaderB />
 
-      <main className="pt-24 px-6 text-white-theme">
+      <main className="text-white-theme">
+
         <HeroB />
         <WorksB />
         <ContactSection />

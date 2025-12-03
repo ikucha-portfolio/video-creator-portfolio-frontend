@@ -9,11 +9,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: theme("colors.background");
-  color: theme("colors.foreground");
+  background: transparent !important;
   font-family: "Noto Sans JP", system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
