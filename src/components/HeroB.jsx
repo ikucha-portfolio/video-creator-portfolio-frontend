@@ -31,7 +31,7 @@ export default function HeroB() {
       {/* ===== 暗めフィルター ===== */}
       <div className="absolute inset-0 bg-black/30" />
 
-      {/* ===== コピー（x軸を右寄せ） ===== */}
+      {/* ===== コピー（調整済み） ===== */}
       <div className="relative z-10 h-full w-full px-6 pl-20 md:pl-32 flex flex-col justify-center text-white">
         <p className="text-xs tracking-[0.3em] opacity-80" translate="no">
           VIDEO CREATOR
@@ -45,40 +45,13 @@ export default function HeroB() {
         <p className="mt-4 text-[16px] leading-8 opacity-90 font-serif">
           駆け出しの動画クリエイターとして、<br />
           あなたの想いを丁寧に形にします。<br />
-          <span className="text-[14px] opacity-90">日本語・中国語対応可能</span>
+          <span className="text-[14px] opacity-90">
+            日本語・中国語対応可能
+          </span>
         </p>
       </div>
 
-      {/* ===== 左下ナビ（常に英語・非翻訳・サンセリフ） ===== */}
-      <div
-        translate="no"
-        className="
-          absolute bottom-10 left-10 z-20 
-          flex gap-8 
-          text-white/85 text-[15px] font-sans tracking-wide
-        "
-      >
-        <Link
-          to="/about"
-          className="hover:text-white transition-colors duration-300"
-        >
-          About
-        </Link>
-
-        <a
-          href="#works"
-          className="hover:text-white transition-colors duration-300"
-        >
-          Works
-        </a>
-
-        <a
-          href="#contact"
-          className="hover:text-white transition-colors duration-300"
-        >
-          Contact
-        </a>
-      </div>
+      {/* ▼ ここにあった「左下CTA」は完全に削除しました */}
 
     </section>
   );

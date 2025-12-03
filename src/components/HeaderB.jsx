@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function HeaderB() {
   const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  // --- スクロールしたらフェードイン ---
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
-      className="
+      className={`
         fixed top-0 left-0 w-full z-50
-        transition-all duration-300
+        transition-all duration-500
+
+        /* フェードイン制御 */
+        ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}
 
         /* ✨ すりガラス質感（元UIを維持） */
         backdrop-blur-md
@@ -26,7 +39,7 @@ export default function HeaderB() {
         bg-opacity-40
 
         border-b border-white/10
-      "
+      `}
     >
       <div
         className="
@@ -35,48 +48,44 @@ export default function HeaderB() {
           h-16 md:h-20
         "
       >
-        {/* Logo（浅葱色・光を帯びた色） */}
+
+        {/* Logo（浅葱色） */}
         <Link
-  to="/"
-  className="font-mincho text-[#FFEFB3] text-lg md:text-xl tracking-wide"
-  translate="no"
->
-  RYAN.CHRONICLE
-</Link>
+          to="/"
+          className="font-mincho text-[#FFEFB3] text-lg md:text-xl tracking-wide"
+          translate="no"
+        >
+          RYAN.CHRONICLE
+        </Link>
 
-
-        {/* Mobile Menu icon（浅葱色） */}
+        {/* Mobile Menu icon */}
         <button
-  onClick={() => setIsOpen(!isOpen)}
-  className="text-[#FFEFB3] md:hidden transition-transform duration-300 active:scale-95"
-  aria-label="Open navigation menu"
->
-  <Menu
-    size={22}
-    strokeWidth={1.4}
-    className="scale-x-[1.15] scale-y-[0.85]"
-  />
-</button>
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-[#FFEFB3] md:hidden transition-transform duration-300 active:scale-95"
+          aria-label="Open navigation menu"
+        >
+          <Menu
+            size={22}
+            strokeWidth={1.4}
+            className="scale-x-[1.15] scale-y-[0.85]"
+          />
+        </button>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 text-white text-sm font-medium">
-          <a href="#works" className="hover:text-[#FFEFB3] transition-colors" translate="no">
+          <a href="#works" className="hover:text-[#FFEFB3]" translate="no">
             Works
           </a>
-          <Link
-            to="/about"
-            className="hover:text-[#FFEFB3] transition-colors"
-            translate="no"
-          >
+          <Link to="/about" className="hover:text-[#FFEFB3]" translate="no">
             About
           </Link>
-          <a href="#contact" className="hover:text-[#FFEFB3] transition-colors" translate="no">
+          <a href="#contact" className="hover:text-[#FFEFB3]" translate="no">
             Contact
           </a>
         </nav>
       </div>
 
-      {/* Mobile Navigation（ガラス × 薄グラデ） */}
+      {/* Mobile Navigation */}
       {isOpen && (
         <div
           className="
@@ -88,34 +97,18 @@ export default function HeaderB() {
               rgba(86, 166, 178, 0.17),
               rgba(126,192,204,0.12)
             )]
-            backdrop-blur-xl
-            backdrop-saturate-150
+            backdrop-blur-xl backdrop-saturate-150
             border-t border-white/10
           "
         >
           <nav className="flex flex-col items-center gap-4 py-6 text-white text-base font-medium">
-            <a
-              href="#works"
-              onClick={() => setIsOpen(false)}
-              className="hover:text-[#FFEFB3] transition-colors"
-              translate="no"
-            >
+            <a href="#works" onClick={() => setIsOpen(false)} className="hover:text-[#FFEFB3]" translate="no">
               Works
             </a>
-            <Link
-              to="/about"
-              onClick={() => setIsOpen(false)}
-              className="hover:text-[#FFEFB3] transition-colors"
-              translate="no"
-            >
+            <Link to="/about" onClick={() => setIsOpen(false)} className="hover:text-[#FFEFB3]" translate="no">
               About
             </Link>
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="hover:text-[#FFEFB3] transition-colors"
-              translate="no"
-            >
+            <a href="#contact" onClick={() => setIsOpen(false)} className="hover:text-[#FFEFB3]" translate="no">
               Contact
             </a>
           </nav>

@@ -77,3 +77,15 @@ a {
 .text-white-theme span {
   color: rgba(255, 255, 255, 0.92);
 }
+
+/* ヘッダーのフェードイン */
+.header-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-out;
+}
+
+.header-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
