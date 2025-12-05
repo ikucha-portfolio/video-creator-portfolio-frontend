@@ -43,7 +43,7 @@ export default function HeroB() {
         </h1>
 
         <p className="mt-4 text-[16px] leading-8 opacity-90 font-serif">
-          駆け出しの動画クリエイターとして、<br />
+          動画クリエイターとして、<br />
           あなたの想いを丁寧に形にします。<br />
           <span className="text-[14px] opacity-90">
             日本語・中国語対応可能
