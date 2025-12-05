@@ -36,9 +36,11 @@ export default function AboutB({ onBack }) {
           
           {/* 大きな写真 */}
           <img
-            src="https://images.unsplash.com/photo-1638545818407-ac7a54b544fd?auto=format&fit=crop&w=1080&q=80"
-            className="w-full object-cover shadow-[0_6px_20px_rgba(0,0,0,0.1)]"
-          />
+  src="/src/assets/ryan.jpg"
+  alt="Ryan Chronicle"
+  className="w-full shadow-[0_6px_20px_rgba(0,0,0,0.1)] object-cover rounded-none"
+/>
+
 
           <div className="space-y-4">
             <h1
