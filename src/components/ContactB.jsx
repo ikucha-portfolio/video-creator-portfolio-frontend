@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Mail, Instagram, Youtube } from "lucide-react";
 
 const XIcon = () => (
@@ -49,8 +51,9 @@ export function ContactSection() {
         </p>
 
         {/* ==== メインCTA ボタン（シャープ × ガラス × 浅黄色） ==== */}
-<a
-  href="#"
+
+<Link
+  to="/contact"
   className="
     group
     inline-flex items-center gap-2
@@ -63,7 +66,6 @@ export function ContactSection() {
   translate="no"
 >
 
-  {/* ▶︎ アイコン */}
   <span
     className="
       text-[17px] leading-none
@@ -75,17 +77,10 @@ export function ContactSection() {
     ▶︎
   </span>
 
-  {/* テキスト */}
-  <span
-    className="
-      transition-colors duration-500
-      group-hover:text-[#F3E8C8]
-    "
-  >
+  <span className="transition-colors duration-500 group-hover:text-[#F3E8C8]">
     お問い合わせフォームへ
   </span>
 
-  {/* 下線（普段は透明、hover であさぎ色に光る） */}
   <span
     className="
       absolute -bottom-[2px] left-0 w-full h-px
@@ -95,7 +90,7 @@ export function ContactSection() {
       group-hover:shadow-[0_0_8px_#F3E8C8]
     "
   />
-</a>
+</Link>
 
 
 
