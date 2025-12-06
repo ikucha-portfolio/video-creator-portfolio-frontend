@@ -102,16 +102,24 @@ export default function AboutB({ onBack }) {
             PROFILE：左テキスト × 右写真
         ======================================================= */}
         <section className="scroll-rise">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+  <div className="
+      grid grid-cols-1 
+      md:grid-cols-[1.38fr_1fr] 
+      gap-8 md:gap-10 
+      items-start
+      max-w-6xl mx-auto
+    "
+  >
 
     {/* LEFT TEXT */}
-    <div className="space-y-6 max-w-[520px]">
-      <div className="space-y-3">
-        <h2 className="text-[18px] font-medium mt-2 text-[#444]">
-          人の想いを、映像で残す。
-        </h2>
-      </div>
+    <div className="space-y-7 md:pr-4">
+      
+      {/* キャッチコピー */}
+      <h2 className="text-[20px] font-medium text-[#444] leading-relaxed">
+        人の想いを、映像で残す。
+      </h2>
 
+      {/* 本文 */}
       <p className="text-[15px] leading-[1.9] text-[#555] space-y-6">
         台湾への留学をきっかけに映像制作を始めました。
         台湾での暮らしや旅を通して、映像が人と人をつなぐ力を強く実感し、
@@ -126,22 +134,20 @@ export default function AboutB({ onBack }) {
         多様な表現に挑戦しています。
       </p>
 
-      {/* 署名 */}
-      <div className="mt-8 space-y-1" translate="no">
+      {/* SIGN BLOCK（肩書き → 本名・英文名） */}
+      <div className="pt-2 space-y-1" translate="no">
         <p className="text-[15px] text-[#89C4E1] font-medium">
           Video Creator
         </p>
 
-        <p className="text-[20px] font-serif text-[#333] flex items-baseline">
+        <p className="text-[22px] font-serif text-[#333] flex items-baseline">
           伊東 良介
-          <span
-            className="text-[15px] font-serif text-[#777] ml-[0.45em]"
-            translate="no"
-          >
+          <span className="text-[15px] font-serif text-[#777] ml-[0.55em]">
             Ryosuke Ito
           </span>
         </p>
       </div>
+
     </div>
 
     {/* RIGHT PHOTO */}
@@ -150,9 +156,11 @@ export default function AboutB({ onBack }) {
         src="/src/assets/ryan.jpg"
         alt="Ryosuke Ito"
         className="
-          w-full max-w-[360px]
+          w-full 
+          max-w-[380px] 
+          md:max-w-[400px]
           object-cover rounded-md
-          shadow-[0_8px_28px_rgba(0,0,0,0.13)]
+          shadow-[0_8px_24px_rgba(0,0,0,0.13)]
         "
       />
     </div>
@@ -161,6 +169,7 @@ export default function AboutB({ onBack }) {
 </section>
 
 <Divider />
+
 
         {/* =======================================================
             CONTENT AREA（幅揃え）

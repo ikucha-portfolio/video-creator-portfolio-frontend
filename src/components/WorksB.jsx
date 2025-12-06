@@ -48,6 +48,7 @@ export default function WorksB() {
           className="
             text-white/60 tracking-[0.25em]
             text-sm uppercase mb-14
+            text-center
           "
           translate="no"
         >
