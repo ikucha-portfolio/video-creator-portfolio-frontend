@@ -1,101 +1,173 @@
 // src/components/AboutB.jsx
-import { ArrowLeft } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
+/* =======================================================
+      MAIN COMPONENT
+======================================================== */
 export default function AboutB({ onBack }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  // --- スクロールしたらフェードイン ---
+  useEffect(() => {
+    const handleScroll = () => setVisible(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-[#444]">
 
-      {/* ===========================
-          HEADER
-      ============================ */}
-      <header className="fixed top-0 left-0 right-0 bg-white border-b border-[#E5E5E5] z-50">
-        <div className="px-4 py-4 max-w-6xl mx-auto">
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-[#444] hover:opacity-70 transition"
+      {/* =======================================================
+          HEADER（浅葱色に統一）
+      ======================================================= */}
+      <header
+        className={`
+          fixed top-0 left-0 w-full z-50
+          transition-all duration-500
+          ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}
+
+          backdrop-blur-md backdrop-saturate-150
+          bg-[linear-gradient(
+            135deg,
+            rgba(33,81,80,0.25),
+            rgba(59,130,140,0.18),
+            rgba(86,166,178,0.13),
+            rgba(126,192,204,0.10)
+          )]
+          bg-opacity-40 border-b border-white/10
+        `}
+      >
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16 md:h-20">
+
+          {/* Logo（浅葱色） */}
+          <Link
+            to="/"
+            className="font-mincho text-[#147C88] text-lg md:text-xl tracking-wide"
+            translate="no"
           >
-            <ArrowLeft className="h-5 w-5" />
-            戻る
+            RYAN.CHRONICLE
+          </Link>
+
+          {/* Mobile Menu */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-[#147C88] md:hidden transition-transform duration-300 active:scale-95"
+            aria-label="open navigation menu"
+          >
+            <Menu size={22} strokeWidth={1.4} className="scale-x-[1.15] scale-y-[0.85]" />
           </button>
+
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex gap-8 text-[#147C88] text-sm font-medium">
+            <Link to="/" className="hover:text-[#0f5d68]" translate="no">Works</Link>
+            <Link to="/about" className="hover:text-[#0f5d68]" translate="no">About</Link>
+            <a href="/#contact" className="hover:text-[#0f5d68]" translate="no">Contact</a>
+          </nav>
         </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div
+            className="
+              md:hidden 
+              bg-[linear-gradient(
+                135deg,
+                rgba(33,81,80,0.28),
+                rgba(59,130,140,0.20),
+                rgba(86,166,178,0.17),
+                rgba(126,192,204,0.12)
+              )]
+              backdrop-blur-xl backdrop-saturate-150
+              border-t border-white/10
+            "
+          >
+            <nav className="flex flex-col items-center gap-4 py-6 text-[#147C88] text-base font-medium">
+              <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-[#0f5d68]" translate="no">Works</Link>
+              <Link onClick={() => setIsOpen(false)} to="/about" className="hover:text-[#0f5d68]" translate="no">About</Link>
+              <a onClick={() => setIsOpen(false)} href="/#contact" className="hover:text-[#0f5d68]" translate="no">Contact</a>
+            </nav>
+          </div>
+        )}
       </header>
 
-      {/* ===========================
-          MAIN
-      ============================ */}
-      <main className="pt-28 pb-32 px-6 max-w-5xl mx-auto space-y-32">
+      {/* =======================================================
+          MAIN CONTENT
+      ======================================================= */}
+      <main className="pt-32 pb-32 px-6 max-w-5xl mx-auto space-y-32">
 
         {/* =======================================================
             PROFILE：左テキスト × 右写真
         ======================================================= */}
         <section className="scroll-rise">
-          <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-start">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
-            {/* --- LEFT TEXT --- */}
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <h1
-                  className="text-[28px] font-medium text-[#333]"
-                  translate="no"
-                >
-                  RYAN CHRONICLE
-                </h1>
+    {/* LEFT TEXT */}
+    <div className="space-y-6 max-w-[520px]">
+      <div className="space-y-3">
+        <h2 className="text-[18px] font-medium mt-2 text-[#444]">
+          人の想いを、映像で残す。
+        </h2>
+      </div>
 
-                <p
-                  className="text-[#89C4E1] text-[17px]"
-                  translate="no"
-                >
-                  Video Creator
-                </p>
+      <p className="text-[15px] leading-[1.9] text-[#555] space-y-6">
+        台湾への留学をきっかけに映像制作を始めました。
+        台湾での暮らしや旅を通して、映像が人と人をつなぐ力を強く実感し、
+        多様な文化や価値観に触れた日々は、私の映像制作の原点です。
 
-                <h2 className="text-[18px] font-medium mt-4 text-[#444]">
-                  人の想いを、映像で残す。
-                </h2>
-              </div>
+        <br /><br />
+        <span translate="no">CHRONICLE</span>（クロニクル）の名のもと、
+        映像を通して人の想いに寄り添い、記憶を未来へ残すことを大切にしています。
 
-              <p className="text-[15px] leading-[1.9] text-[#555] space-y-6">
-                台湾への留学をきっかけに映像制作を始めました。
-                台湾での暮らしや旅を通して、映像が人と人をつなぐ力を強く実感し、
-                多様な文化や価値観に触れた日々は、私の映像制作の原点です。
+        <br /><br />
+        現在は北海道を拠点に、ドキュメンタリー、PR映像、音楽作品など、
+        多様な表現に挑戦しています。
+      </p>
 
-                <br /><br />
+      {/* 署名 */}
+      <div className="mt-8 space-y-1" translate="no">
+        <p className="text-[15px] text-[#89C4E1] font-medium">
+          Video Creator
+        </p>
 
-                <span translate="no">CHRONICLE</span>（クロニクル）の名のもと、
-                映像を通して人の想いに寄り添い、記憶を未来へ残すことを大切にしています。
+        <p className="text-[20px] font-serif text-[#333] flex items-baseline">
+          伊東 良介
+          <span
+            className="text-[15px] font-serif text-[#777] ml-[0.45em]"
+            translate="no"
+          >
+            Ryosuke Ito
+          </span>
+        </p>
+      </div>
+    </div>
 
-                <br /><br />
+    {/* RIGHT PHOTO */}
+    <div className="flex justify-end fade-up">
+      <img
+        src="/src/assets/ryan.jpg"
+        alt="Ryosuke Ito"
+        className="
+          w-full max-w-[360px]
+          object-cover rounded-md
+          shadow-[0_8px_28px_rgba(0,0,0,0.13)]
+        "
+      />
+    </div>
 
-                現在は北海道を拠点に、ドキュメンタリー、PR映像、音楽作品など、
-                多様な表現に挑戦しています。
-              </p>
-            </div>
+  </div>
+</section>
 
-            {/* --- RIGHT PHOTO --- */}
-            <div className="flex justify-end fade-up">
-              <img
-                src="/src/assets/ryan.jpg"
-                alt="Ryan Chronicle"
-                className="
-                  w-full max-w-[340px] md:max-w-[360px]
-                  object-cover rounded-md
-                  shadow-[0_8px_28px_rgba(0,0,0,0.13)]
-                "
-              />
-            </div>
-
-          </div>
-        </section>
-
-        <Divider />
+<Divider />
 
         {/* =======================================================
             CONTENT AREA（幅揃え）
         ======================================================= */}
         <div className="max-w-3xl mx-auto space-y-32">
 
-          {/* =======================================================
-              Biography（経歴）
-          ======================================================= */}
+          {/* Biography */}
           <section className="space-y-10">
             <SectionTitle translate="no">Biography</SectionTitle>
 
@@ -136,14 +208,11 @@ export default function AboutB({ onBack }) {
 
           <Divider />
 
-          {/* =======================================================
-              Core Values（大切にしていること）– C案
-          ======================================================= */}
+          {/* Core Values */}
           <section className="space-y-12">
             <SectionTitle translate="no">Core Values</SectionTitle>
 
             <div className="space-y-16">
-
               <ValueItem number="01" title="Honoring Emotions with Care">
                 背景や感情に向き合い、その想いが自然に映像へ宿るよう制作しています。
               </ValueItem>
@@ -155,28 +224,22 @@ export default function AboutB({ onBack }) {
               <ValueItem number="03" title="Creating Memories That Last">
                 <span translate="no">Chronicle</span> として、心に残る記録を未来へ受け渡す映像を作り続けています。
               </ValueItem>
-
             </div>
           </section>
 
           <Divider />
 
-          {/* =======================================================
-              Gear & Software（使用機材・ソフト）
-          ======================================================= */}
+          {/* Gear & Software */}
           <section className="space-y-10">
             <SectionTitle translate="no">Gear & Software</SectionTitle>
 
             <div className="text-[15px] text-[#555] leading-[1.9] space-y-6">
 
-              {/* Camera Gear */}
-              <h3 className="font-medium text-[17px] mt-4" translate="no">
-                Camera Gear
-              </h3>
+              <h3 className="font-medium text-[17px] mt-4" translate="no">Camera Gear</h3>
 
               <ul className="space-y-3" translate="no">
                 <ListItem>FUJIFILM X-H2</ListItem>
-                <ListItem>FUJIFILM X-T3</ListItem>
+                <ListItem>FUJIFILX-T3</ListItem>
                 <ListItem>XF 18-55mm F2.8-4</ListItem>
                 <ListItem>Tokina ATX-M 33mm F1.4</ListItem>
                 <ListItem>TAMRON 18-300mm</ListItem>
@@ -192,10 +255,7 @@ export default function AboutB({ onBack }) {
                 <ListItem>Ulanzi VL120 RGB Light</ListItem>
               </ul>
 
-              {/* Software */}
-              <h3 className="font-medium text-[17px] mt-10" translate="no">
-                Software
-              </h3>
+              <h3 className="font-medium text-[17px] mt-10" translate="no">Software</h3>
 
               <ul className="space-y-2" translate="no">
                 <li>Premiere Pro</li>
@@ -227,20 +287,14 @@ export default function AboutB({ onBack }) {
 }
 
 /* =======================================================
-      REUSABLE PARTS
+      REUSABLE COMPONENTS
 ======================================================= */
 
 function SectionTitle({ children }) {
   return (
-    <h2
-      className="text-[22px] font-medium relative pb-2 text-[#444]"
-      translate="no"
-    >
+    <h2 className="text-[22px] font-medium relative pb-2 text-[#444]" translate="no">
       {children}
-      <span className="
-        block h-[2px] bg-[#89C4E1]/60 mt-1
-        w-0 animate-underlineExpand
-      "></span>
+      <span className="block h-[2px] bg-[#89C4E1]/60 mt-1 w-0 animate-underlineExpand"></span>
     </h2>
   );
 }
@@ -258,7 +312,6 @@ function YearBlock({ year, children }) {
   );
 }
 
-/* ==== C案：大きい数字デザイン ==== */
 function ValueItem({ number, title, children }) {
   return (
     <div className="relative">
@@ -268,8 +321,7 @@ function ValueItem({ number, title, children }) {
           text-[44px] md:text-[52px]
           text-[#e5e5e5]
           font-light leading-none
-          -translate-y-3
-          tracking-tight select-none
+          -translate-y-3 tracking-tight select-none
         "
         translate="no"
       >
@@ -277,9 +329,7 @@ function ValueItem({ number, title, children }) {
       </span>
 
       <div className="pl-14 md:pl-16">
-        <h3 className="font-medium text-[17px] mb-2 text-[#444]" translate="no">
-          {title}
-        </h3>
+        <h3 className="font-medium text-[17px] mb-2 text-[#444]" translate="no">{title}</h3>
         <p className="text-[15px] leading-[1.9] text-[#555]">{children}</p>
       </div>
     </div>
@@ -288,11 +338,6 @@ function ValueItem({ number, title, children }) {
 
 function ListItem({ children }) {
   return (
-    <li
-      className="text-[#89C4E1] hover:underline"
-      translate="no"
-    >
-      {children}
-    </li>
+    <li className="text-[#89C4E1] hover:underline" translate="no">{children}</li>
   );
 }
