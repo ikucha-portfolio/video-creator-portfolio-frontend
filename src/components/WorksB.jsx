@@ -91,31 +91,34 @@ export default function WorksB() {
                   transition-opacity duration-500
                 " />
 
-                {/* ▶ 高級再生ボタン */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div
-                    className="
-                      w-16 h-16 rounded-full
-                      border border-white/50
-                      backdrop-blur-sm bg-white/10
-                      flex items-center justify-center
-                      shadow-[0_0_12px_rgba(255,255,255,0.2)]
-                      group-hover:border-asagi/80
-                      group-hover:bg-asagi/20
-                      group-hover:shadow-[0_0_18px_rgba(243,247,137,0.45)]
-                      transition-all duration-500
-                    "
-                  >
-                    <Play
-                      className="
-                        h-7 w-7 text-white
-                        group-hover:text-asagi
-                        transition-colors duration-500
-                        ml-1
-                      "
-                    />
-                  </div>
-                </div>
+                {/* ▶ 洗練されたミニ再生ボタン */}
+{/* ▶ 超ミニ・繊細プレイボタン（40px） */}
+<div className="absolute inset-0 flex items-center justify-center">
+  <div
+    className="
+      w-10 h-10          /* 40px */
+      rounded-full
+      border border-white/30
+      backdrop-blur-sm bg-white/5
+      flex items-center justify-center
+      shadow-[0_0_6px_rgba(255,255,255,0.15)]
+      transition-all duration-500
+      group-hover:border-white/60
+      group-hover:bg-white/15
+      group-hover:shadow-[0_0_10px_rgba(255,255,255,0.30)]
+    "
+  >
+    <Play
+      className="
+        w-4 h-4
+        text-white
+        ml-0.5
+        transition-colors duration-500
+      "
+    />
+  </div>
+</div>
+
 
                 {/* テキスト */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

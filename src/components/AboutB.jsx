@@ -59,7 +59,7 @@ export default function AboutB({ onBack }) {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden border-t border-[#eee] bg-white">
-            <nav className="flex flex-col items-center gap-4 py-6 text-[#147C88] text-base">
+            <nav className="flex flex-col items-center gap-4 py-6 text-[#147C88] text-base" translate="no">
               <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-[#0f5d68]">
                 Works
               </Link>

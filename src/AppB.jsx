@@ -10,14 +10,23 @@ export default function AppB() {
     <div
       className="
         min-h-screen antialiased
-        bg-[linear-gradient(to_bottom_left,var(--grad-top),var(--grad-2),var(--grad-3),var(--grad-4),var(--grad-bottom))]
+        bg-black        /* 最初の背景。ここは何色でも OK、動画の裏になるだけ */
       "
     >
+      {/* ヘッダー（グラデ背景の上に重なる） */}
       <HeaderB />
 
-      <main className="text-white-theme">
+      {/* ここは背景なしで OK：Hero の動画は独立 */}
+      <HeroB />
 
-        <HeroB />
+      {/* ここから下が “統一グラデーション背景” */}
+      <main
+        className="
+          text-white-theme
+          bg-[linear-gradient(to_bottom_left,var(--grad-top),var(--grad-2),var(--grad-3),var(--grad-4),var(--grad-bottom))]
+          pb-16
+        "
+      >
         <WorksB />
         <ContactSection />
         <FooterB />
@@ -25,4 +34,3 @@ export default function AppB() {
     </div>
   );
 }
-
