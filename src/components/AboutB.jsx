@@ -1,31 +1,31 @@
 // src/components/AboutB.jsx
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
-/* =======================================================
-      ABOUT PAGE — WHITE HEADER VERSION（B案）
-======================================================== */
 export default function AboutB({ onBack }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white text-[#444]">
 
-      {/* =======================================================
-          WHITE HEADER（B案）
-      ======================================================= */}
+      {/* ===========================
+          WHITE GLASS HEADER
+      ============================ */}
       <header
+        style={{
+          backgroundColor: "rgba(255,255,255,0.95)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
         className="
           fixed top-0 left-0 w-full z-50
-          bg-white
-          border-b border-[#eee]
-          shadow-[0_1px_3px_rgba(0,0,0,0.03)]
+          border-b border-white/40
         "
       >
         <div className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
 
-          {/* Logo（浅葱色） */}
+          {/* LOGO */}
           <Link
             to="/"
             className="font-mincho text-[#147C88] text-lg md:text-xl tracking-wide"
@@ -34,7 +34,7 @@ export default function AboutB({ onBack }) {
             RYAN.CHRONICLE
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-[#147C88]"
@@ -44,49 +44,38 @@ export default function AboutB({ onBack }) {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8 text-[#147C88] text-sm font-medium">
-            <Link to="/" className="hover:text-[#0f5d68]" translate="no">
-              Works
-            </Link>
-            <Link to="/about" className="hover:text-[#0f5d68]" translate="no">
-              About
-            </Link>
-            <a href="/#contact" className="hover:text-[#0f5d68]" translate="no">
-              Contact
-            </a>
+            <Link to="/" className="hover:text-[#0f5d68]" translate="no">Works</Link>
+            <Link to="/about" className="hover:text-[#0f5d68]" translate="no">About</Link>
+            <a href="/#contact" className="hover:text-[#0f5d68]" translate="no">Contact</a>
           </nav>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden border-t border-[#eee] bg-white">
-            <nav className="flex flex-col items-center gap-4 py-6 text-[#147C88] text-base" translate="no">
-              <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-[#0f5d68]">
-                Works
-              </Link>
-              <Link onClick={() => setIsOpen(false)} to="/about" className="hover:text-[#0f5d68]">
-                About
-              </Link>
-              <a
-                onClick={() => setIsOpen(false)}
-                href="/#contact"
-                className="hover:text-[#0f5d68]"
-              >
-                Contact
-              </a>
+          <div
+            style={{
+              backgroundColor: "rgba(255,255,255,1)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+            }}
+            className="md:hidden border-t border-white/50"
+          >
+            <nav className="flex flex-col items-center gap-4 py-6 text-[#147C88] text-base">
+              <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-[#0f5d68]">Works</Link>
+              <Link onClick={() => setIsOpen(false)} to="/about" className="hover:text-[#0f5d68]">About</Link>
+              <a onClick={() => setIsOpen(false)} href="/#contact" className="hover:text-[#0f5d68]">Contact</a>
             </nav>
           </div>
         )}
       </header>
 
-      {/* =======================================================
+      {/* ===========================
           MAIN CONTENT
-      ======================================================= */}
+      ============================ */}
       <main className="pt-32 pb-32 px-6 max-w-5xl mx-auto space-y-32">
 
-        {/* =======================================================
-            PROFILE：左テキスト × 右写真
-        ======================================================= */}
-        <section className="scroll-rise">
+        {/* PROFILE SECTION */}
+        <section>
           <div className="grid grid-cols-1 md:grid-cols-[1.38fr_1fr] gap-8 md:gap-10 items-start max-w-6xl mx-auto">
             
             {/* LEFT TEXT */}
@@ -110,8 +99,9 @@ export default function AboutB({ onBack }) {
                 多様な表現に挑戦しています。
               </p>
 
+              {/* ★ 浅葱色に変更 */}
               <div className="pt-2 space-y-1" translate="no">
-                <p className="text-[15px] text-[#89C4E1] font-medium">Video Creator</p>
+                <p className="text-[15px] text-[#147C88] font-medium">Video Creator</p>
 
                 <p className="text-[22px] font-serif text-[#333] flex items-baseline">
                   伊東 良介
@@ -122,7 +112,7 @@ export default function AboutB({ onBack }) {
             </div>
 
             {/* RIGHT PHOTO */}
-            <div className="flex justify-end fade-up">
+            <div className="flex justify-end">
               <img
                 src="/src/assets/ryan.jpg"
                 alt="Ryosuke Ito"
@@ -139,11 +129,9 @@ export default function AboutB({ onBack }) {
 
         <Divider />
 
-        {/* =======================================================
-            Biography
-        ======================================================= */}
+        {/* BIOGRAPHY */}
         <section className="space-y-10 max-w-3xl mx-auto">
-          <SectionTitle translate="no">Biography</SectionTitle>
+          <SectionTitle>Biography</SectionTitle>
 
           <div className="text-[15px] text-[#555] leading-[1.85] space-y-3">
             <p>1989年生まれ / 栃木県出身 / 北海道江別市在住</p>
@@ -154,7 +142,6 @@ export default function AboutB({ onBack }) {
           <div className="text-[15px] text-[#555] leading-[1.9] space-y-6">
             <YearBlock year="2011 - 2018">
               約8年介護職に従事。ギター弾き語りでの旅を経験。
-              台湾旅行で文化に触れ、興味を持つ。
             </YearBlock>
 
             <YearBlock year="2019 - 2021">
@@ -166,8 +153,7 @@ export default function AboutB({ onBack }) {
             </YearBlock>
 
             <YearBlock year="2023">
-              イベントPR動画制作。
-              台北の日系企業でSNSマーケティング・動画制作を担当。
+              イベントPR動画制作。台北の日系企業でSNSマーケティングを担当。
             </YearBlock>
 
             <YearBlock year="2024">
@@ -182,11 +168,9 @@ export default function AboutB({ onBack }) {
 
         <Divider />
 
-        {/* =======================================================
-            Core Values
-        ======================================================= */}
+        {/* VALUES */}
         <section className="space-y-12 max-w-3xl mx-auto">
-          <SectionTitle translate="no">Core Values</SectionTitle>
+          <SectionTitle>Core Values</SectionTitle>
 
           <div className="space-y-16">
             <ValueItem number="01" title="Honoring Emotions with Care">
@@ -198,24 +182,22 @@ export default function AboutB({ onBack }) {
             </ValueItem>
 
             <ValueItem number="03" title="Creating Memories That Last">
-              <span translate="no">Chronicle</span> として、心に残る記録を未来へ受け渡す映像を作り続けています。
+              Chronicle として、心に残る記録を未来へ受け渡す映像を作り続けています。
             </ValueItem>
           </div>
         </section>
 
         <Divider />
 
-        {/* =======================================================
-            Gear & Software
-        ======================================================= */}
+        {/* GEAR */}
         <section className="space-y-10 max-w-3xl mx-auto">
-          <SectionTitle translate="no">Gear & Software</SectionTitle>
+          <SectionTitle>Gear & Software</SectionTitle>
 
           <div className="text-[15px] text-[#555] leading-[1.9] space-y-6">
 
-            <h3 className="font-medium text-[17px] mt-4" translate="no">Camera Gear</h3>
+            <h3 className="font-medium text-[17px] mt-4">Camera Gear</h3>
 
-            <ul className="space-y-3" translate="no">
+            <ul className="space-y-3">
               <ListItem>FUJIFILM X-H2</ListItem>
               <ListItem>FUJIFILX-T3</ListItem>
               <ListItem>XF 18-55mm F2.8-4</ListItem>
@@ -233,9 +215,9 @@ export default function AboutB({ onBack }) {
               <ListItem>Ulanzi VL120 RGB Light</ListItem>
             </ul>
 
-            <h3 className="font-medium text-[17px] mt-10" translate="no">Software</h3>
+            <h3 className="font-medium text-[17px] mt-10">Software</h3>
 
-            <ul className="space-y-2" translate="no">
+            <ul className="space-y-2">
               <li>Premiere Pro</li>
               <li>DaVinci Resolve</li>
               <li>After Effects</li>
@@ -246,9 +228,7 @@ export default function AboutB({ onBack }) {
           </div>
         </section>
 
-        {/* =======================================================
-            RETURN BUTTON
-        ======================================================= */}
+        {/* RETURN BUTTON */}
         <div className="pt-20">
           <button
             onClick={onBack}
@@ -265,14 +245,14 @@ export default function AboutB({ onBack }) {
 }
 
 /* =======================================================
-      SMALL COMPONENTS
+      SMALL COMPONENTS（浅葱色で統一）
 ======================================================== */
 
 function SectionTitle({ children }) {
   return (
-    <h2 className="text-[22px] font-medium relative pb-2 text-[#444]" translate="no">
+    <h2 className="text-[22px] font-medium relative pb-2 text-[#444]">
       {children}
-      <span className="block h-[2px] bg-[#89C4E1]/60 mt-1 w-0 animate-underlineExpand"></span>
+      <span className="block h-[2px] bg-[#147C88]/50 mt-1 w-0 animate-underlineExpand"></span>
     </h2>
   );
 }
@@ -284,7 +264,7 @@ function Divider() {
 function YearBlock({ year, children }) {
   return (
     <div>
-      <p className="font-medium text-[#89C4E1]" translate="no">{year}</p>
+      <p className="font-medium text-[#147C88]">{year}</p>
       <p>{children}</p>
     </div>
   );
@@ -301,13 +281,12 @@ function ValueItem({ number, title, children }) {
           font-light leading-none
           -translate-y-3 tracking-tight select-none
         "
-        translate="no"
       >
         {number}
       </span>
 
       <div className="pl-14 md:pl-16">
-        <h3 className="font-medium text-[17px] mb-2 text-[#444]" translate="no">{title}</h3>
+        <h3 className="font-medium text-[17px] mb-2 text-[#444]">{title}</h3>
         <p className="text-[15px] leading-[1.9] text-[#555]">{children}</p>
       </div>
     </div>
@@ -316,6 +295,6 @@ function ValueItem({ number, title, children }) {
 
 function ListItem({ children }) {
   return (
-    <li className="text-[#89C4E1] hover:underline" translate="no">{children}</li>
+    <li className="text-[#147C88] hover:underline">{children}</li>
   );
 }

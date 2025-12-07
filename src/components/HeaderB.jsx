@@ -4,113 +4,88 @@ import { Link } from "react-router-dom";
 
 export default function HeaderB() {
   const [isOpen, setIsOpen] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [scrollOpacity, setScrollOpacity] = useState(0);
 
-  // --- スクロールしたらフェードイン ---
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 80);
+      const y = window.scrollY;
+
+      // 80px までは完全透明（見えない）
+      if (y < 80) {
+        setScrollOpacity(0);
+        return;
+      }
+
+      // 80px → 200px のスクロールに応じて透明度が変わる
+      const progress = Math.min((y - 80) / 120, 1);
+
+      const min = 0.3;   // フェードイン直後の薄透け白
+      const max = 0.95;  // スクロール後の濃い白
+      setScrollOpacity(min + (max - min) * progress);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // メニューを開いた時は強制的に真っ白にする
+  const bgOpacity = isOpen ? 1 : scrollOpacity;
+
   return (
     <header
-      className={`
+      style={{
+        opacity: bgOpacity === 0 && !isOpen ? 0 : 1, // 完全非表示スタート
+        backgroundColor: `rgba(255,255,255,${bgOpacity})`,
+        backdropFilter: `blur(${bgOpacity * 12}px)`,
+        WebkitBackdropFilter: `blur(${bgOpacity * 12}px)`,
+        transition: "opacity 0.5s ease, background-color 0.5s ease, backdrop-filter 0.5s ease",
+        pointerEvents: bgOpacity === 0 && !isOpen ? "none" : "auto",
+      }}
+      className="
         fixed top-0 left-0 w-full z-50
-        transition-all duration-500
-
-        /* フェードイン制御 */
-        ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}
-
-        /* ✨ すりガラス質感（元UIを維持） */
-        backdrop-blur-md
-        backdrop-saturate-150
-
-        /* ✨ 緑の薄い斜めグラデをフィルムのように重ねる */
-        bg-[linear-gradient(
-          135deg,
-          rgba(33, 81, 80, 0.25),
-          rgba(59, 130, 140, 0.18),
-          rgba(86, 166, 178, 0.13),
-          rgba(126,192,204,0.10)
-        )]
-        bg-opacity-40
-
-        border-b border-white/10
-      `}
+        border-b border-white/40
+      "
     >
-      <div
-        className="
-          max-w-6xl mx-auto px-6
-          flex items-center justify-between
-          h-16 md:h-20
-        "
-      >
+      {/* HEADER CONTENT */}
+      <div className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
 
-        {/* Logo（浅葱色） */}
         <Link
           to="/"
-          className="font-mincho text-[#FFEFB3] text-lg md:text-xl tracking-wide"
+          className="font-mincho text-[#147C88] text-lg md:text-xl tracking-wide"
           translate="no"
         >
           RYAN.CHRONICLE
         </Link>
 
-        {/* Mobile Menu icon */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-[#FFEFB3] md:hidden transition-transform duration-300 active:scale-95"
-          aria-label="Open navigation menu"
+          className="md:hidden text-[#147C88]"
         >
-          <Menu
-            size={22}
-            strokeWidth={1.4}
-            className="scale-x-[1.15] scale-y-[0.85]"
-          />
+          <Menu size={22} strokeWidth={1.5} />
         </button>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 text-white text-sm font-medium">
-          <a href="#works" className="hover:text-[#FFEFB3]" translate="no">
-            Works
-          </a>
-          <Link to="/about" className="hover:text-[#FFEFB3]" translate="no">
-            About
-          </Link>
-          <a href="#contact" className="hover:text-[#FFEFB3]" translate="no">
-            Contact
-          </a>
+        <nav className="hidden md:flex gap-8 text-[#147C88] text-sm font-medium" translate="no">
+          <a href="#works" className="hover:text-[#0f5d68]">Works</a>
+          <Link to="/about" className="hover:text-[#0f5d68]">About</Link>
+          <a href="#contact" className="hover:text-[#0f5d68]">Contact</a>
         </nav>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* MOBILE MENU */}
       {isOpen && (
         <div
-          className="
-            md:hidden 
-            bg-[linear-gradient(
-              135deg,
-              rgba(33, 81, 80, 0.28),
-              rgba(59, 130, 140, 0.20),
-              rgba(86, 166, 178, 0.17),
-              rgba(126,192,204,0.12)
-            )]
-            backdrop-blur-xl backdrop-saturate-150
-            border-t border-white/10
-          "
+          style={{
+            backgroundColor: "rgba(255,255,255,1)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            transition: "background-color 0.3s ease",
+          }}
+          className="md:hidden border-t border-white/50"
         >
-          <nav className="flex flex-col items-center gap-4 py-6 text-white text-base font-medium">
-            <a href="#works" onClick={() => setIsOpen(false)} className="hover:text-[#FFEFB3]" translate="no">
-              Works
-            </a>
-            <Link to="/about" onClick={() => setIsOpen(false)} className="hover:text-[#FFEFB3]" translate="no">
-              About
-            </Link>
-            <a href="#contact" onClick={() => setIsOpen(false)} className="hover:text-[#FFEFB3]" translate="no">
-              Contact
-            </a>
+          <nav className="flex flex-col items-center gap-4 py-6 text-[#147C88] text-base" translate="no">
+            <a href="#works" onClick={() => setIsOpen(false)}>Works</a>
+            <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+            <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
           </nav>
         </div>
       )}
