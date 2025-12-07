@@ -37,31 +37,27 @@ export function ContactSection() {
     <section
       id="contact"
       className="
-        relative py-28 px-6 lg:px-12 text-center scroll-rise
+        relative py-36 px-6 lg:px-12 text-center scroll-rise
       "
     >
-      {/* 上線（浅黄色の光） */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r 
           from-transparent via-[#F3E8C8]/60 to-transparent" />
 
-      <div className="max-w-3xl mx-auto">
-
+      <div className="max-w-3xl mx-auto" translate="no">
         <p
           className="
             text-white/60 tracking-[0.25em]
-            text-sm uppercase mb-6
-            
+            text-sm uppercase mb-6 font-light
           "
         >
           CONTACT
         </p>
 
-        <p className="text-white/80 text-[16px] leading-relaxed mb-12">
+        <p className="text-white/85 text-[15px] leading-relaxed mb-12">
           ご相談やお見積もりは無料です。<br />
           お気軽にお問い合わせください。
         </p>
 
-        {/* ==== CTAボタン（ガラス × 洗練） ==== */}
         <Link
           to="/contact"
           className="
@@ -95,8 +91,7 @@ export function ContactSection() {
           />
         </Link>
 
-        {/* ==== SNSアイコン ==== */}
-        <div className="mt-16 flex justify-center gap-6">
+        <div className="mt-20 flex justify-center gap-6">
           {socialLinks.map((social) => {
             const Icon = social.icon;
             return (
@@ -113,7 +108,7 @@ export function ContactSection() {
                   backdrop-blur-md bg-white/10
                   hover:border-[#F3E8C8]
                   hover:bg-[#F3E8C8]/20
-                  hover:shadow-[0_0_18px_rgba(243,232,200,0.45)]
+                  hover:shadow-[0_0_15px_rgba(243,232,200,0.35)]
                   transition-all duration-300
                 "
               >
@@ -122,7 +117,6 @@ export function ContactSection() {
             );
           })}
         </div>
-
       </div>
     </section>
   );
