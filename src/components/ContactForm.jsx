@@ -16,6 +16,13 @@ export default function ContactForm() {
           下記フォームよりお気軽にお問い合わせください。
         </p>
 
+        {/* ▼▼ 追加：準備中メッセージ ▼▼ */}
+        <div className="mb-10 text-[14px] leading-relaxed text-[#147C88]">
+          ※ お問い合わせフォーム準備中です。<br />
+          お急ぎの場合は、お手数ですが SNS の DM よりご連絡ください。
+        </div>
+        {/* ▲▲ 追加ここまで ▲▲ */}
+
         <form
           action="mailto:your-email@example.com"
           method="POST"
