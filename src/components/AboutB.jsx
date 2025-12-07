@@ -219,11 +219,11 @@ export default function AboutB({ onBack }) {
               <ListItem>Ulanzi VL120 RGB Light</ListItem>
             </ul>
 
-            <h3 className="font-medium text-[17px] mt-10" ranslate="no">
+            <h3 className="font-medium text-[17px] mt-10" translate="no">
               Software
             </h3>
 
-            <ul className="space-y-2" ranslate="no">
+            <ul className="space-y-2" translate="no">
               <li>Premiere Pro</li>
               <li>DaVinci Resolve</li>
               <li>After Effects</li>
