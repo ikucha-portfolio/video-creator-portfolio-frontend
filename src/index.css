@@ -1,6 +1,6 @@
-/* =========================================
-   Tailwind base
-========================================= */
+/* Google Fonts 明朝体 */
+@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,9 +10,9 @@
 ========================================= */
 :root {
   /* 上→中→下（lit.link系の抜け感） */
-  --teal-top:    #0E4C48;  /* 上：やや暗い深緑 */
-  --teal-mid:    #1E6D66;  /* 中：基調の青緑 */
-  --teal-bottom: #86D2D8;  /* 下：明るい水色寄り */
+  --teal-top:    #0E4C48;
+  --teal-mid:    #1E6D66;
+  --teal-bottom: #86D2D8;
 }
 
 /* =========================================
@@ -21,11 +21,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: theme("colors.background");
-  color: theme("colors.foreground");
+  background: transparent !important;
   font-family: "Noto Sans JP", system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -36,16 +33,15 @@ a {
    Custom utilities (purge-friendly)
 ========================================= */
 @layer utilities {
+
   /* ===== HERO background：縦グラデ＋上部ハイライト ===== */
   .bg-hero-figma {
     background-image:
-      /* 上部の光だまり */
       radial-gradient(
         900px 480px at 50% 0%,
         rgba(255,255,255,0.22) 0%,
         rgba(255,255,255,0.00) 55%
       ),
-      /* 上→下の縦グラデーション */
       linear-gradient(
         180deg,
         var(--teal-top) 0%,
@@ -70,22 +66,20 @@ a {
       inset 0 -40px 120px rgba(0,0,0,0.18);
   }
 
-  /* ガラス艶＋微粒ノイズ（背景に重ねる質感） */
+  /* ガラス艶＋微粒ノイズ */
   .hero-glass {
     position: relative;
-    isolation: isolate; /* 擬似要素のブレンドを閉じ込める */
+    isolation: isolate;
   }
   .hero-glass::before {
     content: "";
     position: absolute; inset: 0;
     pointer-events: none;
     background:
-      /* 上からの艶 */
       linear-gradient(to bottom,
         rgba(255,255,255,0.28) 0%,
         rgba(255,255,255,0.10) 12%,
         rgba(255,255,255,0.00) 32%),
-      /* 細い縦グロス */
       linear-gradient(90deg,
         rgba(255,255,255,0.10) 0%,
         rgba(255,255,255,0.00) 18%,
@@ -97,7 +91,7 @@ a {
     content: "";
     position: absolute; inset: 0;
     pointer-events: none;
-    opacity: .06; /* 強ければ下げる */
+    opacity: .06;
     background-image: url("data:image/svg+xml;utf8,\
       <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>\
       <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter>\
@@ -106,11 +100,10 @@ a {
     mix-blend-mode: overlay;
   }
 
-  /* 可読性ベール（必要時のみ子要素でON） */
   .hero-overlay-10 { background-color: rgba(0,0,0,.10); }
   .hero-overlay-15 { background-color: rgba(0,0,0,.15); }
 
-  /* ===== Header glass（同系色・透け・スクロールで締まる） ===== */
+  /* ===== Header glass ===== */
   .header-safe { padding-top: env(safe-area-inset-top); }
 
   .header-glass {
@@ -123,7 +116,7 @@ a {
         color-mix(in oklab, #1E6D66 85%, transparent) 60%,
         color-mix(in oklab, #86D2D8 85%, transparent) 100%
       );
-    background-color: rgba(30,109,102,0.35); /* フォールバック */
+    background-color: rgba(30,109,102,0.35);
     box-shadow:
       inset 0 1px 0 rgba(255,255,255,0.18),
       inset 0 -1px 0 rgba(0,0,0,0.12);
@@ -140,4 +133,85 @@ a {
       0 6px 18px rgba(0,0,0,0.22);
     border-bottom-color: rgba(255,255,255,0.14);
   }
+
+  /* ===== About下線アニメ ===== */
+  @keyframes lineExpand {
+    from { width: 0; }
+    to   { width: 32px; }
+  }
+  .underline-animate {
+    animation: lineExpand 0.9s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    animation: fadeUp 1s ease-out forwards;
+  }
+}
+
+/* ---- アニメーション共通 ---- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.zoom {
+  opacity: 0;
+  transform: scale(1.03);
+  transition: all 0.9s ease-out;
+}
+.zoom.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* === グラデ用CSS変数 === */
+:root {
+  --grad-top: #215150;
+  --grad-2: #3b828c;
+  --grad-3: #368790;
+  --grad-4: #56a6b2;
+  --grad-bottom: #7ec0cc;
+}
+
+/* === 明朝体テーマ === */
+.font-mincho {
+  font-family: "Yuji Syuku", "Hiragino Mincho ProN", serif;
+}
+
+/* === 白文字テーマ === */
+.text-white-theme,
+.text-white-theme h1,
+.text-white-theme h2,
+.text-white-theme h3,
+.text-white-theme p,
+.text-white-theme span {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* === ヘッダーのフェードイン === */
+.header-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-out;
+}
+.header-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
