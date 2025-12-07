@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Menu, ArrowLeft, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
-import ryanPhoto from "/src/assets/ryan.jpg";
+import ryanImg from "../assets/ryan.jpg";
+
 
 
 /* X ロゴ */
@@ -173,10 +174,11 @@ export default function AboutB({ onBack }) {
             {/* RIGHT PHOTO */}
             <div className="flex justify-end">
               <img
-  src={ryanPhoto}
+  src={ryanImg}
   alt="Ryosuke Ito"
   className="w-full max-w-[400px] rounded-md object-cover shadow-[0_8px_24px_rgba(0,0,0,0.13)]"
 />
+
             </div>
 
           </div>

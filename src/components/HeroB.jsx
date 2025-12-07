@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import logo from "/src/assets/logo1.png";
-
-import heroCover from "/videos/hero-cover.mp4";
-import heroMobile from "/videos/hero-mobile.mp4";
+import logo from "../assets/logo1.png";
+import heroCover from "../assets/videos/hero-cover.mp4";
+import heroMobile from "../assets/videos/hero-mobile.mp4";
 
 export default function HeroB() {
   return (
