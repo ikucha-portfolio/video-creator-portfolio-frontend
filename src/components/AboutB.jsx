@@ -189,20 +189,48 @@ export default function AboutB({ onBack }) {
           </ValueItem>
         </section>
 
-        <Divider />
+        <Divider />t
 
         {/* Gear */}
         <section className="space-y-10 max-w-3xl mx-auto">
           <SectionTitle translate="no">Gear & Software</SectionTitle>
 
-          <ul className="space-y-2">
-            <ListItem>FUJIFILM X-H2</ListItem>
-            <ListItem>XF 18-55mm F2.8-4</ListItem>
-            <ListItem>Tokina ATX-M 33mm F1.4</ListItem>
-            <ListItem>DJI Mavic 3 Pro</ListItem>
-            <ListItem>DaVinci Resolve</ListItem>
-            <ListItem>Premiere Pro</ListItem>
-          </ul>
+          <div className="text-[15px] text-[#555] leading-[1.9] space-y-6">
+
+            <h3 className="font-medium text-[17px] mt-4" translate="no">
+              Camera Gear
+            </h3>
+
+            <ul className="space-y-3">
+              <ListItem>FUJIFILM X-H2</ListItem>
+              <ListItem>FUJIFILX-T3</ListItem>
+              <ListItem>XF 18-55mm F2.8-4</ListItem>
+              <ListItem>Tokina ATX-M 33mm F1.4</ListItem>
+              <ListItem>TAMRON 18-300mm</ListItem>
+              <ListItem>Viltrox 13mm F1.4</ListItem>
+              <ListItem>NiSi TRUE COLOR VND</ListItem>
+              <ListItem>Black Mist No.05</ListItem>
+              <ListItem>DJI Mavic 3 Pro</ListItem>
+              <ListItem>DJI RSC 2</ListItem>
+              <ListItem>Ulanzi F38 Tripod</ListItem>
+              <ListItem>TASCAM X8</ListItem>
+              <ListItem>ZOOM M3 MicTrak</ListItem>
+              <ListItem>AnkerWork M650</ListItem>
+              <ListItem>Ulanzi VL120 RGB Light</ListItem>
+            </ul>
+
+            <h3 className="font-medium text-[17px] mt-10" ranslate="no">
+              Software
+            </h3>
+
+            <ul className="space-y-2" ranslate="no">
+              <li>Premiere Pro</li>
+              <li>DaVinci Resolve</li>
+              <li>After Effects</li>
+              <li>Lightroom Classic</li>
+              <li>Photoshop</li>
+            </ul>
+          </div>
         </section>
 
         <div className="pt-20">
