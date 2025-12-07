@@ -18,7 +18,7 @@ function ScrollToTop() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // ←好みで "auto" に変更してもOK
+      behavior: "smooth",
     });
   }, [pathname]);
 
@@ -30,9 +30,8 @@ function ScrollToTop() {
 --------------------------------------------- */
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/video-creator-portfolio-frontend">
 
-      {/* ← これがあることで全ページでトップへ戻る */}
       <ScrollToTop />
 
       <Routes>

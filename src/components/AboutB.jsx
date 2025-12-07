@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { Menu, ArrowLeft, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
+import ryanPhoto from "/src/assets/ryan.jpg";
+
 
 /* X ロゴ */
 const XIcon = () => (
@@ -50,19 +52,51 @@ export default function AboutB({ onBack }) {
           </button>
 
           <nav className="hidden md:flex gap-8 text-[#147C88] text-sm font-medium">
-            <Link to="/" translate="no" className="hover:text-[#0f5d68]">Works</Link>
-            <Link to="/about" translate="no" className="hover:text-[#0f5d68]">About</Link>
-            <a href="/contact#form" translate="no" className="hover:text-[#0f5d68]">Contact</a>
-          </nav>
+  <Link to="/" translate="no" className="hover:text-[#0f5d68]">
+    Works
+  </Link>
+
+  <Link to="/about" translate="no" className="hover:text-[#0f5d68]">
+    About
+  </Link>
+
+  <Link to="/contact" translate="no" className="hover:text-[#0f5d68]">
+    Contact
+  </Link>
+</nav>
+
+
         </div>
 
         {isOpen && (
           <div className="md:hidden bg-white border-t border-white/50">
             <nav className="flex flex-col items-center gap-4 py-6 text-[#147C88] text-base">
-              <Link onClick={() => setIsOpen(false)} to="/" className="hover:text-[#0f5d68]">Works</Link>
-              <Link onClick={() => setIsOpen(false)} to="/about" className="hover:text-[#0f5d68]">About</Link>
-              <a onClick={() => setIsOpen(false)} href="/contact#form" className="hover:text-[#0f5d68]">Contact</a>
-            </nav>
+  <Link
+    onClick={() => setIsOpen(false)}
+    to="/"
+    className="hover:text-[#0f5d68]"
+  >
+    Works
+  </Link>
+
+  <Link
+    onClick={() => setIsOpen(false)}
+    to="/about"
+    className="hover:text-[#0f5d68]"
+  >
+    About
+  </Link>
+
+  <Link
+    onClick={() => setIsOpen(false)}
+    to="/contact"
+    className="hover:text-[#0f5d68]"
+  >
+    Contact
+  </Link>
+</nav>
+
+
           </div>
         )}
       </header>
@@ -139,10 +173,10 @@ export default function AboutB({ onBack }) {
             {/* RIGHT PHOTO */}
             <div className="flex justify-end">
               <img
-                src="/src/assets/ryan.jpg"
-                alt="Ryosuke Ito"
-                className="w-full max-w-[400px] rounded-md object-cover shadow-[0_8px_24px_rgba(0,0,0,0.13)]"
-              />
+  src={ryanPhoto}
+  alt="Ryosuke Ito"
+  className="w-full max-w-[400px] rounded-md object-cover shadow-[0_8px_24px_rgba(0,0,0,0.13)]"
+/>
             </div>
 
           </div>
@@ -189,7 +223,7 @@ export default function AboutB({ onBack }) {
           </ValueItem>
         </section>
 
-        <Divider />t
+        <Divider />
 
         {/* Gear */}
         <section className="space-y-10 max-w-3xl mx-auto">

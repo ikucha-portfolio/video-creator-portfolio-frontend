@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "/src/assets/logo1.png";
 
+import heroCover from "/videos/hero-cover.mp4";
+import heroMobile from "/videos/hero-mobile.mp4";
+
 export default function HeroB() {
   return (
     <section className="relative w-full h-screen overflow-hidden bg-black">
@@ -8,7 +11,7 @@ export default function HeroB() {
       {/* PC用背景動画 */}
       <video
         className="absolute inset-0 w-full h-full object-cover hidden md:block"
-        src="/videos/hero-cover.mp4"
+        src={heroCover}
         autoPlay
         muted
         loop
@@ -18,12 +21,13 @@ export default function HeroB() {
       {/* スマホ用背景動画 */}
       <video
         className="absolute inset-0 w-full h-full object-cover md:hidden"
-        src="/videos/hero-mobile.mp4"
+        src={heroMobile}
         autoPlay
         muted
         loop
         playsInline
       />
+
 
       {/* フィルター（読みやすさUP） */}
       <div className="absolute inset-0 bg-black/30 md:bg-black/35" />
