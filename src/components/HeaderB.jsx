@@ -54,7 +54,7 @@ export default function HeaderB() {
           className="font-mincho text-[#147C88] text-lg md:text-xl tracking-wide"
           translate="no"
         >
-          RYAN.CHRONICLE
+          RYAN CHRONICLE
         </Link>
 
         <button
