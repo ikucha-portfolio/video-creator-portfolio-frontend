@@ -108,81 +108,79 @@ export default function AboutB({ onBack }) {
       <main className="pt-32 pb-32 px-6 max-w-5xl mx-auto space-y-32">
 
         {/* PROFILE SECTION */}
-        <section>
-          <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-10 items-start">
+{/* PROFILE SECTION */}
+<section className="space-y-12">
 
-            {/* LEFT */}
-            <div className="space-y-8 md:pr-6">
+  {/* --- ① テキスト --- */}
+  <div className="space-y-6">
+    <h2 className="text-[20px] font-mincho text-[#444]" translate="no">
+      人の想いを、映像で残す。
+    </h2>
 
-              <h2 className="text-[20px]  font-mincho text-[#444]" translate="no">
-                人の想いを、映像で残す。
-              </h2>
+    <p className="text-[15px] leading-[1.9] text-[#555]">
+      台湾への留学をきっかけに映像制作を始めました。
+      台湾での暮らしや旅を通して、映像が人と人をつなぐ力を強く実感し、
+      多様な文化や価値観に触れた日々は、私の映像制作の原点です。
+      <br /><br />
+      <span translate="no">CHRONICLE</span>（クロニクル）の名のもと、
+      映像を通して人の想いに寄り添い、記憶を未来へ残すことを大切にしています。
+      <br /><br />
+      現在は北海道を拠点に、ドキュメンタリー、PR映像、音楽作品など、
+      多様な表現に挑戦しています。
+    </p>
+  </div>
 
-              <p className="text-[15px] leading-[1.9] text-[#555]">
-                台湾への留学をきっかけに映像制作を始めました。
-                台湾での暮らしや旅を通して、映像が人と人をつなぐ力を強く実感し、
-                多様な文化や価値観に触れた日々は、私の映像制作の原点です。
-                <br /><br />
-                <span translate="no">CHRONICLE</span>（クロニクル）の名のもと、
-                映像を通して人の想いに寄り添い、記憶を未来へ残すことを大切にしています。
-                <br /><br />
-                現在は北海道を拠点に、ドキュメンタリー、PR映像、音楽作品など、
-                多様な表現に挑戦しています。
-              </p>
+  {/* --- ② 写真（上48px） --- */}
+  <div className="mt-12 flex justify-center">
+    <img
+      src={ryanImg}
+      alt="Ryosuke Ito"
+      className="w-full max-w-[420px] rounded-md object-cover shadow-[0_8px_24px_rgba(0,0,0,0.13)]"
+    />
+  </div>
 
-              {/* 名前・SNS・フォームブロック */}
-              <div className="space-y-4" translate="no">
+  {/* --- ③ Video Creator / 名前 / SNS（上48px） --- */}
+  <div className="space-y-6 mt-12" translate="no">
 
-                {/* 名前 */}
-                <div>
-                  <p className="text-[15px] text-[#147C88] font-medium">Video Creator</p>
+    <div>
+      <p className="text-[15px] text-[#147C88] font-medium">Video Creator</p>
 
-                  <p className="text-[22px]  font-mincho text-[#333] flex items-baseline">
-                    伊東 良介
-                    <span className="text-[15px] font-mincho text-[#777] ml-[0.55em]">
-                      Ryosuke Ito
-                    </span>
-                  </p>
-                </div>
+      <p className="text-[22px] font-mincho text-[#333] flex items-baseline">
+        伊東 良介
+        <span className="text-[15px] font-mincho text-[#777] ml-[0.55em]">
+          Ryosuke Ito
+        </span>
+      </p>
+    </div>
 
-                {/* SNS */}
-                <div className="flex gap-4">
-                  <IconLink href="https://www.instagram.com/ryan.chronicle/">
-                    <Instagram size={16} />
-                  </IconLink>
+    {/* SNS */}
+    <div className="flex gap-4">
+      <IconLink href="https://www.instagram.com/ryan.chronicle/">
+        <Instagram size={16} />
+      </IconLink>
 
-                  <IconLink href="https://youtube.com/@ryan_chronicle">
-                    <Youtube size={16} />
-                  </IconLink>
+      <IconLink href="https://youtube.com/@ryan_chronicle">
+        <Youtube size={16} />
+      </IconLink>
 
-                  <IconLink href="https://x.com/ryanchroniclejp">
-                    <XIcon />
-                  </IconLink>
-                </div>
+      <IconLink href="https://x.com/ryanchroniclejp">
+        <XIcon />
+      </IconLink>
+    </div>
 
-                {/* 問い合わせ */}
-                <Link
-                  to="/contact#form"
-                  className="group inline-flex items-center gap-2 text-[#147C88] text-[15px]"
-                >
-                  <span className="text-[17px] group-hover:translate-x-[3px] transition">▶︎</span>
-                  <span className="group-hover:opacity-80 transition">お問い合わせフォームへ</span>
-                </Link>
-              </div>
-            </div>
+    {/* お問い合わせボタン */}
+    <Link
+      to="/contact#form"
+      className="group inline-flex items-center gap-2 text-[#147C88] text-[15px]"
+    >
+      <span className="text-[17px] group-hover:translate-x-[3px] transition">▶︎</span>
+      <span className="group-hover:opacity-80 transition">お問い合わせフォームへ</span>
+    </Link>
+  </div>
 
-            {/* RIGHT PHOTO */}
-            <div className="flex justify-end">
-              <img
-  src={ryanImg}
-  alt="Ryosuke Ito"
-  className="w-full max-w-[400px] rounded-md object-cover shadow-[0_8px_24px_rgba(0,0,0,0.13)]"
-/>
+</section>
 
-            </div>
 
-          </div>
-        </section>
 
         <Divider />
 
