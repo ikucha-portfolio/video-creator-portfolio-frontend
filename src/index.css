@@ -192,7 +192,11 @@ a {
 
 /* === 明朝体テーマ === */
 .font-mincho {
-  font-family: "Yuji Syuku", "Hiragino Mincho ProN", serif;
+  font-family:
+    "Noto Serif JP",
+    "Hiragino Mincho ProN",
+    "Hiragino Mincho",
+    serif;
 }
 
 /* === 白文字テーマ === */

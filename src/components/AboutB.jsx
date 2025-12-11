@@ -114,7 +114,7 @@ export default function AboutB({ onBack }) {
             {/* LEFT */}
             <div className="space-y-8 md:pr-6">
 
-              <h2 className="text-[20px] font-medium text-[#444]" translate="no">
+              <h2 className="text-[20px]  font-mincho text-[#444]" translate="no">
                 人の想いを、映像で残す。
               </h2>
 

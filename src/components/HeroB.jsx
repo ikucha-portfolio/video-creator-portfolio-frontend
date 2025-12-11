@@ -83,16 +83,17 @@ export default function HeroB() {
 
           {/* ---------- キャッチコピー ---------- */}
           <h1
-            className="
-              font-serif
-              leading-tight
-              text-[22px] md:text-[clamp(32px,5vw,48px)]
-              mb-5
-            "
-          >
-            人の想いを、<br className="md:hidden" />
-            映像に。
-          </h1>
+  className="
+    font-mincho
+    leading-tight
+    text-[22px] md:text-[clamp(32px,5vw,48px)]
+    mb-5
+  "
+>
+  人の想いを、<br className="md:hidden" />
+  映像に。
+</h1>
+
 
           {/* ---------- 本文 ---------- */}
           <p
