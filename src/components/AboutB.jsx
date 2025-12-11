@@ -137,9 +137,9 @@ export default function AboutB({ onBack }) {
                 <div>
                   <p className="text-[15px] text-[#147C88] font-medium">Video Creator</p>
 
-                  <p className="text-[22px] font-serif text-[#333] flex items-baseline">
+                  <p className="text-[22px]  font-mincho text-[#333] flex items-baseline">
                     伊東 良介
-                    <span className="text-[15px] font-serif text-[#777] ml-[0.55em]">
+                    <span className="text-[15px] font-mincho text-[#777] ml-[0.55em]">
                       Ryosuke Ito
                     </span>
                   </p>
