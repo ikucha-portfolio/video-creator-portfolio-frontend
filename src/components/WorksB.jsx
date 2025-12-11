@@ -24,9 +24,15 @@ const works = [
   },
   {
     id: "b8k4JoNv4TY",
-    title: "作品④",
+    title: "木靈 -Kodama-",
     category: "Short Film",
     thumbnail: "https://img.youtube.com/vi/b8k4JoNv4TY/hqdefault.jpg",
+  },
+  {
+    id: "RqGxN7aUtrM",
+    title: "松岡義人 -Sound Memo-",
+    category: "Documentary",
+    thumbnail: "https://img.youtube.com/vi/RqGxN7aUtrM/hqdefault.jpg",
   },
 ];
 
