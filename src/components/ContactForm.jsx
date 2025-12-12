@@ -24,11 +24,11 @@ export default function ContactForm() {
         {/* ▲▲ 追加ここまで ▲▲ */}
 
         <form
-          action="mailto:your-email@example.com"
-          method="POST"
-          encType="text/plain"
-          className="space-y-8"
-        >
+  action="https://formspree.io/f/mgvgrapd"
+  method="POST"
+  className="space-y-8"
+>
+
           {/* お名前 */}
           <div>
             <label className="block text-sm mb-1 text-[#666]">お名前</label>
