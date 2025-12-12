@@ -98,7 +98,7 @@ export default function HeroB() {
           {/* ---------- 本文 ---------- */}
           <p
             className="
-              font-serif
+              font-mincho
               text-[13px] md:text-[16px]
               leading-[1.8]
               opacity-90
