@@ -54,7 +54,7 @@ export default function WorksB() {
           WORKS
         </p>
 
-        {/* Grid */}
+        {/* Works Grid */}
         <div className="grid md:grid-cols-2 gap-10">
           {works.map((work) => (
             <div
@@ -64,16 +64,16 @@ export default function WorksB() {
               }
               className="group relative cursor-pointer overflow-hidden shadow-[0_6px_24px_rgba(0,0,0,0.10)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.15)] transition-all duration-500"
             >
-              {/* Thumbnail */}
               <div className="relative aspect-video overflow-hidden">
+                {/* Thumbnail */}
                 <img
                   src={work.thumbnail}
                   alt=""
                   className="w-full h-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.04]"
                 />
 
-                {/* Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                {/* 全体グラデーション */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -82,24 +82,48 @@ export default function WorksB() {
                   </div>
                 </div>
 
-                {/* Text Overlay – Left Bottom */}
-                <div className="absolute left-4 sm:left-6 bottom-4 sm:bottom-6 max-w-[72%] text-white pointer-events-none">
-                  {/* Category */}
-                  <p className="mb-1 text-[10px] tracking-[0.3em] uppercase opacity-60">
-                    {work.category}
-                  </p>
+                {/* ===== Text Overlay（左下・可読性重視） ===== */}
+                {/* ===== Text Overlay（境界を感じさせない） ===== */}
+<div className="absolute left-4 sm:left-6 bottom-4 sm:bottom-6 max-w-[72%] pointer-events-none">
+  {/* 擬似マスクレイヤー */}
+  <div
+    className="
+      absolute inset-x-0 -inset-y-2
+      bg-black/40
+      blur-xl
+      opacity-70
+      [mask-image:linear-gradient(to_top,black,transparent)]
+    "
+  />
 
-                  {/* Title */}
-                  <h3 className="text-[13px] sm:text-[14px] lg:text-[15px] font-light leading-snug tracking-wide text-white/90">
-                    {Array.isArray(work.title)
-                      ? work.title.map((line, i) => (
-                          <span key={i} className="block">
-                            {line}
-                          </span>
-                        ))
-                      : work.title}
-                  </h3>
-                </div>
+  {/* Text */}
+  <div
+  className="
+    relative
+    text-white
+    transition-all duration-500 ease-out
+    group-hover:-translate-y-[2px]
+    group-hover:drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)]
+    drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]
+  "
+>
+    <p className="mb-1 text-[10px] tracking-[0.3em] uppercase opacity-70">
+      {work.category}
+    </p>
+
+    <h3 className="text-[13px] sm:text-[14px] lg:text-[15px] font-light leading-snug tracking-wide text-white/95">
+      {Array.isArray(work.title)
+        ? work.title.map((line, i) => (
+            <span key={i} className="block">
+              {line}
+            </span>
+          ))
+        : work.title}
+    </h3>
+  </div>
+</div>
+
+                {/* ===== /Text Overlay ===== */}
               </div>
             </div>
           ))}
