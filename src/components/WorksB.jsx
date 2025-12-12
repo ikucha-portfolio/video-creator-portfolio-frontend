@@ -18,14 +18,14 @@ const works = [
   },
   {
     id: "nZhXHjCubMQ",
-    title: "作品③",
+    title: "台湾芸術大学ラジオ・テレビ学科卒業作品展ハイライト",
     category: "Creative",
     thumbnail: "https://img.youtube.com/vi/nZhXHjCubMQ/hqdefault.jpg",
   },
   {
     id: "b8k4JoNv4TY",
     title: "木靈 -Kodama-",
-    category: "Short Film",
+    category: "Music Video",
     thumbnail: "https://img.youtube.com/vi/b8k4JoNv4TY/hqdefault.jpg",
   },
   {
