@@ -28,6 +28,13 @@ export default function ContactForm() {
   method="POST"
   className="space-y-8"
 >
+  <input
+    type="hidden"
+    name="_redirect"
+    value="https://ikucha-portfolio.github.io/video-creator-portfolio-frontend/thanks"
+  />
+
+  {/* ↓ ここから下は、今ある入力欄そのまま */}
 
           {/* お名前 */}
           <div>
