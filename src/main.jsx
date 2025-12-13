@@ -8,6 +8,7 @@ import "./index.css";
 import AppB from "./AppB";
 import AboutB from "./components/AboutB";
 import ContactForm from "./components/ContactForm";
+import Thanks from "./components/Thanks";
 
 /* ---------------------------------------------
    ページ遷移時に必ずトップへスクロール
@@ -43,6 +44,7 @@ createRoot(document.getElementById("root")).render(
         />
 
         <Route path="/contact" element={<ContactForm />} />
+        <Route path="/thanks" element={<Thanks />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
