@@ -31,7 +31,7 @@ function ScrollToTop() {
 --------------------------------------------- */
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/video-creator-portfolio-frontend">
+    <BrowserRouter>
 
       <ScrollToTop />
 
