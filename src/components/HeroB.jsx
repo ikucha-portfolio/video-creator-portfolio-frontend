@@ -8,7 +8,7 @@ export default function HeroB() {
       {/* PC用背景動画 */}
       <video
   className="absolute inset-0 w-full h-full object-cover hidden md:block"
-  src="/video-creator-portfolio-frontend/videos/hero-cover.mp4"
+  src="/videos/hero-cover.mp4"
   autoPlay
   muted
   loop
@@ -18,7 +18,7 @@ export default function HeroB() {
       {/* スマホ用背景動画 */}
       <video
   className="absolute inset-0 w-full h-full object-cover md:hidden"
-  src="/video-creator-portfolio-frontend/videos/hero-mobile.mp4"
+  src="/videos/hero-mobile.mp4"
   autoPlay
   muted
   loop
